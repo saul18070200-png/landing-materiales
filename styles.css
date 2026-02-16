@@ -52,6 +52,12 @@ h4 {
     padding: 0 2rem;
 }
 
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+}
+
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -329,8 +335,8 @@ nav ul li a:hover {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
 .product-card {
