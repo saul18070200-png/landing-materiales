@@ -1120,8 +1120,7 @@ footer {
 
     .hero {
         height: auto;
-        padding: 180px 0 80px;
-        /* Increased from 140px to prevent header overlap */
+        padding: 240px 0 80px;
         text-align: center;
     }
 
