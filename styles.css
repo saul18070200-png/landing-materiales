@@ -1150,4 +1150,50 @@ footer {
     .full-width {
         grid-column: span 1;
     }
+
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .benefit-item {
+        padding: 1.2rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .comparison-table-wrapper {
+        margin: 0 -1rem;
+        padding: 0 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 0.9rem;
+        gap: 4px;
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .section-header {
+        margin-bottom: 3rem;
+    }
+}
 }
