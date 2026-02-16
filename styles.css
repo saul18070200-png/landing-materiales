@@ -193,14 +193,79 @@ header .container {
     align-items: center;
 }
 
+/* Logo Redesign */
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: var(--transition);
 }
 
-.logo-accent {
-    color: var(--primary-alt);
+.logo:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--primary-alt) 0%, #FF8C42 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.3);
+}
+
+.logo-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    /* Slightly smaller to fit "Prefabricados MP" */
+    line-height: 1;
+}
+
+.brand-heavy {
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+}
+
+.brand-divider {
+    color: #cbd5e1;
+    font-weight: 300;
+}
+
+.brand-light {
+    font-weight: 500;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 0.95rem;
+        /* Scale down for mobile */
+        gap: 4px;
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo-icon svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 nav ul {
