@@ -1117,20 +1117,30 @@ footer {
 
     .hero {
         height: auto;
-        padding: 120px 0 80px;
+        padding: 140px 0 80px;
+        text-align: center;
     }
 
     header .container {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.2rem;
     }
 
     nav ul {
-        gap: 1.5rem;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .hero-btns {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btns .btn-primary-large,
+    .hero-btns .btn-secondary {
+        width: 100%;
+        justify-content: center;
     }
 
     .quote-form-container {
