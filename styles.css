@@ -1120,7 +1120,8 @@ footer {
 
     .hero {
         height: auto;
-        padding: 320px 0 80px;
+        padding: 300px 0 80px;
+        /* Reduced padding because header is now thinner, but still safe */
         text-align: center;
     }
 
@@ -1129,19 +1130,25 @@ footer {
     }
 
     header .container {
-        flex-direction: column;
-        gap: 0.25rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     nav ul {
         gap: 0.5rem;
-        flex-wrap: wrap;
-        justify-content: center;
+    }
+
+    nav ul li:not(:last-child) {
+        display: none;
+        /* Hide text links on mobile to save space */
     }
 
     nav ul li .btn-primary-sm {
-        padding: 0.4rem 1rem;
-        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        margin: 0;
     }
 
     .hero-btns {
