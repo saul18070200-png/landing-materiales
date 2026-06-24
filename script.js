@@ -36,7 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fichas tecnicas (modal)
     const specData = {
-        vigueta: { tag: "P-15 y P-20", title: "Semivigueta de Alma Abierta", wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20semivigueta%20de%20alma%20abierta", rows: [["Peraltes","15 y 20 cm"],["Armadura","Gr. 60, fy 6000 kg/cm2"],["Varillin","5⁄16 y 1⁄4, Gr. 60"],["Patin de concreto","f'c mayor o igual a 250 kg/cm2"],["T.M.A.","10 mm"],["Peso lineal","15 kg por metro"]] },
+        vigueta: { tag: "P-15 y P-20", title: "Semivigueta de Alma Abierta", wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20semivigueta%20de%20alma%20abierta", rows: [
+            ["Peraltes disponibles","P-15 (15 cm) y P-20 (20 cm)"],
+            ["Armadura P-15","14/64 — varilla 1/4\" Gr. 60"],
+            ["Armadura P-20","19/64 — varilla 1/4\" Gr. 60"],
+            ["Refuerzo diagonal","Calibre #8, Grado 50"],
+            ["Concreto del patín","f'c = 250 kg/cm²"],
+            ["Carga útil","310 kg/m²"],
+            ["Peso propio P-15","220 kg/m²"],
+            ["Peso propio P-20","240 kg/m²"],
+            ["Claro máx. P-15","4.80 m"],
+            ["Claro máx. P-20","5.40 m"]
+        ] },
         bovedilla: { tag: "Concreto y EPS", title: "Bovedilla", wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20bovedilla", rows: [["Concreto (medidas)","75x25x15 y 70x20x20 cm"],["Poliestireno","1.22 x 0.63 m"],["Peraltes en EPS","15, 20 y 25 cm"],["Funcion","Pieza aligerante de relleno"],["Ventaja EPS","Mayor aislamiento y menor peso"]] },
         caseton: { tag: "Losa Nervada", title: "Caseton de Poliestireno", wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20caseton", rows: [["Material","Poliestireno expandido (EPS)"],["Medida estandar","40 x 40 cm"],["Altura","Variable, a proyecto"],["Aplicacion","Losas nervadas 1 y 2 direcciones"],["Fabricacion","Piezas a la medida"],["Adicional","Tambien placas de poliestireno"]] }
     };

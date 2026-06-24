@@ -1381,6 +1381,7 @@ img { max-width: 100%; }
 .peralte-badge { background: var(--primary-alt); color: white; font-size: 0.78rem; font-weight: 800; letter-spacing: 1px; padding: 0.3rem 0.75rem; border-radius: 4px; display: inline-block; }
 .peralte-badge.p20 { background: var(--primary); }
 .claro-value { font-size: 1.3rem; font-weight: 800; color: var(--primary-alt); font-family: 'Outfit', sans-serif; }
+.carga-value { font-size: 1rem; font-weight: 700; color: var(--primary); }
 .tech-note { font-size: 0.8rem; color: var(--gray); border-top: 1px solid #f1f5f9; padding-top: 1rem; margin: 0; line-height: 1.5; }
 .calc-hint { font-size: 0.8rem; color: var(--primary-alt); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
 .calc-form { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.2rem; }
