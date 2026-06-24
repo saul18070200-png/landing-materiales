@@ -59,6 +59,37 @@ document.addEventListener("DOMContentLoaded", () => {
         document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
     }
 
+    // Calculadora de materiales (calibrada con datos reales de Prefabricados MP)
+    window.calcularLosa = function() {
+        const claro = parseFloat(document.getElementById("calc-claro").value);
+        const largo = parseFloat(document.getElementById("calc-largo").value);
+        const peralte = document.getElementById("calc-peralte").value;
+        if (!claro || claro <= 0 || !largo || largo <= 0) {
+            alert("Ingresa el claro y el largo de tu losa.");
+            return;
+        }
+        const ESPACIADO = 0.80;
+        const OVERHANG = 0.20;
+        const numViguetas = Math.ceil(largo / ESPACIADO);
+        const longVigueta = +(claro + OVERHANG).toFixed(2);
+        const m2 = claro * largo;
+        const bovedillas = Math.ceil(m2 * 6);
+        const claroMax = peralte === "15" ? 4.80 : 5.40;
+        const warnEl = document.getElementById("calcWarning");
+        if (claro > claroMax) {
+            warnEl.textContent = "⚠ El claro de " + claro + " m supera el máximo para P-" + peralte + " (" + claroMax + " m). Considera usar P-20 o consulta con tu proyectista.";
+            warnEl.style.display = "block";
+        } else {
+            warnEl.style.display = "none";
+        }
+        document.getElementById("calcViguetaNum").textContent = numViguetas;
+        document.getElementById("calcViguetaLen").textContent = "piezas de " + longVigueta + " m";
+        document.getElementById("calcBovedillas").textContent = bovedillas;
+        document.getElementById("calcResultado").classList.add("active");
+        const msg = "Hola, necesito cotización:\n• Losa " + claro + " m × " + largo + " m (" + m2.toFixed(1) + " m²), peralte P-" + peralte + "\n• Estimado: " + numViguetas + " viguetas de " + longVigueta + " m y " + bovedillas + " bovedillas";
+        document.getElementById("calcWA").href = "https://wa.me/524424253643?text=" + encodeURIComponent(msg);
+    };
+
     const quoteForm = document.getElementById("quoteForm");
     if (quoteForm) {
         quoteForm.addEventListener("submit", function(e) {
