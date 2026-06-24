@@ -194,7 +194,7 @@ header {
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    padding: 0.25rem 0;
+    padding: 0.15rem 0;
     border-bottom: 1px solid var(--accent);
     transition: var(--transition);
 }
@@ -219,8 +219,8 @@ header .container {
     transform: translateY(-1px);
 }
 
-.logo-img { height: 80px; width: auto; display: block; object-fit: contain; }
-@media (max-width: 480px) { .logo-img { height: 64px; } }
+.logo-img { height: 60px; width: auto; display: block; object-fit: contain; }
+@media (max-width: 480px) { .logo-img { height: 48px; } }
 
 .logo-icon {
     width: 42px;
@@ -1527,7 +1527,7 @@ footer { padding: 4rem 0 2rem; }
 .footer-bottom { padding-top: 2rem; }
 .why-grid { gap: 3.5rem; }
 
-.hero { height: 100vh; min-height: 540px; margin-top: 0; padding-top: 80px; box-sizing: border-box; }
+.hero { height: 100vh; min-height: 540px; margin-top: 0; padding-top: 68px; box-sizing: border-box; }
 .hero p { margin: 1.4rem 0 2rem; }
 .hero-stats { margin-top: 2.4rem; padding-top: 1.8rem; }
 
