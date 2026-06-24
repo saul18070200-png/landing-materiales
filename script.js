@@ -36,20 +36,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fichas tecnicas (modal)
     const specData = {
-        vigueta: { tag: "P-15 y P-20", title: "Semivigueta de Alma Abierta", wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20semivigueta%20de%20alma%20abierta", rows: [
-            ["Peraltes disponibles","P-15 (15 cm) y P-20 (20 cm)"],
-            ["Armadura P-15","14/64 — varilla 1/4\" Gr. 60"],
-            ["Armadura P-20","19/64 — varilla 1/4\" Gr. 60"],
-            ["Refuerzo diagonal","Calibre #8, Grado 50"],
-            ["Concreto del patín","f'c = 250 kg/cm²"],
-            ["Carga útil","310 kg/m²"],
-            ["Peso propio P-15","220 kg/m²"],
-            ["Peso propio P-20","240 kg/m²"],
-            ["Claro máx. P-15","4.80 m"],
-            ["Claro máx. P-20","5.40 m"]
-        ] },
-        bovedilla: { tag: "Concreto y EPS", title: "Bovedilla", wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20bovedilla", rows: [["Concreto (medidas)","75x25x15 y 70x20x20 cm"],["Poliestireno","1.22 x 0.63 m"],["Peraltes en EPS","15, 20 y 25 cm"],["Funcion","Pieza aligerante de relleno"],["Ventaja EPS","Mayor aislamiento y menor peso"]] },
-        caseton: { tag: "Losa Nervada", title: "Caseton de Poliestireno", wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20caseton", rows: [["Material","Poliestireno expandido (EPS)"],["Medida estandar","40 x 40 cm"],["Altura","Variable, a proyecto"],["Aplicacion","Losas nervadas 1 y 2 direcciones"],["Fabricacion","Piezas a la medida"],["Adicional","Tambien placas de poliestireno"]] }
+        vigueta: {
+            tag: "Ficha Técnica",
+            title: "Semivigueta de Alma Abierta",
+            wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20semivigueta%20de%20alma%20abierta",
+            html: `
+                <div class="modal-kpis">
+                    <div class="modal-kpi"><span class="kpi-val">310</span><span class="kpi-unit">kg/m²</span><span class="kpi-label">Carga útil</span></div>
+                    <div class="modal-kpi"><span class="kpi-val">4.80</span><span class="kpi-unit">m</span><span class="kpi-label">Claro P-15</span></div>
+                    <div class="modal-kpi"><span class="kpi-val">5.40</span><span class="kpi-unit">m</span><span class="kpi-label">Claro P-20</span></div>
+                </div>
+                <div class="modal-section-label">Acero de refuerzo</div>
+                <div class="modal-compare">
+                    <div class="modal-compare-col">
+                        <div class="modal-col-head p15">P-15 · 15 cm</div>
+                        <div class="modal-col-row"><span>Armadura</span>14/64</div>
+                        <div class="modal-col-row"><span>Varilla sup.</span>1/4" Gr. 60</div>
+                        <div class="modal-col-row"><span>Diagonal</span>Cal. #8 Gr. 50</div>
+                        <div class="modal-col-row"><span>Peso propio</span>220 kg/m²</div>
+                    </div>
+                    <div class="modal-compare-col">
+                        <div class="modal-col-head p20">P-20 · 20 cm</div>
+                        <div class="modal-col-row"><span>Armadura</span>19/64</div>
+                        <div class="modal-col-row"><span>Varilla sup.</span>1/4" Gr. 60</div>
+                        <div class="modal-col-row"><span>Diagonal</span>Cal. #8 Gr. 50</div>
+                        <div class="modal-col-row"><span>Peso propio</span>240 kg/m²</div>
+                    </div>
+                </div>
+                <div class="modal-section-label">Concreto</div>
+                <div class="modal-spec-row"><span>Patín prefabricado</span><strong>f'c = 250 kg/cm²</strong></div>
+                <div class="modal-spec-row"><span>Capa de compresión</span><strong>f'c = 200 kg/cm² (por constructor)</strong></div>
+                <div class="modal-section-label">Instalación</div>
+                <div class="modal-spec-row"><span>Separación entre puntales</span><strong>máx. 1.50 m</strong></div>
+                <div class="modal-spec-row"><span>Largeros transversales P-15</span><strong>cada 1.30 m</strong></div>
+                <div class="modal-spec-row"><span>Largeros transversales P-20</span><strong>cada 1.20 m</strong></div>
+            `
+        },
+        bovedilla: {
+            tag: "Ficha Técnica",
+            title: "Bovedilla",
+            wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20bovedilla",
+            html: `
+                <div class="modal-section-label">Bovedilla de Concreto</div>
+                <div class="modal-spec-row"><span>Medidas (L × A × H)</span><strong>75 × 25 × 15 cm</strong></div>
+                <div class="modal-spec-row"><span>Medidas alternativa</span><strong>70 × 20 × 20 cm</strong></div>
+                <div class="modal-spec-row"><span>Peralte</span><strong>15 cm</strong></div>
+                <div class="modal-section-label">Bovedilla de Poliestireno (EPS)</div>
+                <div class="modal-spec-row"><span>Medidas</span><strong>1.22 × 0.63 m</strong></div>
+                <div class="modal-spec-row"><span>Peraltes disponibles</span><strong>15, 20 y 25 cm</strong></div>
+                <div class="modal-spec-row"><span>Ventaja</span><strong>Mayor aislamiento térmico y acústico</strong></div>
+                <div class="modal-spec-row"><span>Peso</span><strong>Más ligera que concreto</strong></div>
+            `
+        },
+        caseton: {
+            tag: "Ficha Técnica",
+            title: "Casetón de Poliestireno",
+            wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20caseton",
+            html: `
+                <div class="modal-kpis" style="grid-template-columns:1fr 1fr;">
+                    <div class="modal-kpi"><span class="kpi-val">40×40</span><span class="kpi-unit">cm</span><span class="kpi-label">Medida estándar</span></div>
+                    <div class="modal-kpi"><span class="kpi-val">1–2</span><span class="kpi-unit">dir.</span><span class="kpi-label">Losas nervadas</span></div>
+                </div>
+                <div class="modal-section-label">Especificaciones</div>
+                <div class="modal-spec-row"><span>Material</span><strong>Poliestireno expandido (EPS)</strong></div>
+                <div class="modal-spec-row"><span>Medida estándar</span><strong>40 × 40 cm</strong></div>
+                <div class="modal-spec-row"><span>Altura</span><strong>Variable, se fabrica a proyecto</strong></div>
+                <div class="modal-spec-row"><span>Aplicación</span><strong>Losas nervadas 1 y 2 direcciones</strong></div>
+                <div class="modal-spec-row"><span>Fabricación</span><strong>Piezas a la medida del proyecto</strong></div>
+                <div class="modal-spec-row"><span>Adicional</span><strong>También placas de poliestireno</strong></div>
+            `
+        }
     };
     const modal = document.getElementById("specModal");
     if (modal) {
@@ -60,10 +116,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const openModal = key => {
             const d = specData[key]; if (!d) return;
             mTag.textContent = d.tag; mTitle.textContent = d.title; mCta.href = d.wa;
-            mBody.innerHTML = d.rows.map(r => "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td></tr>").join("");
+            mBody.innerHTML = d.html;
             modal.classList.add("open"); document.body.classList.add("modal-open");
+            modal.setAttribute("aria-hidden", "false");
         };
-        const closeModal = () => { modal.classList.remove("open"); document.body.classList.remove("modal-open"); };
+        const closeModal = () => {
+            modal.classList.remove("open"); document.body.classList.remove("modal-open");
+            modal.setAttribute("aria-hidden", "true");
+        };
         document.querySelectorAll(".spec-btn").forEach(b => b.addEventListener("click", () => openModal(b.dataset.spec)));
         document.getElementById("modalClose").addEventListener("click", closeModal);
         modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
