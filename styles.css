@@ -219,7 +219,7 @@ header .container {
     transform: translateY(-1px);
 }
 
-.logo-img { height: 56px; width: auto; display: block; object-fit: contain; mix-blend-mode: multiply; }
+.logo-img { height: 56px; width: auto; display: block; object-fit: contain; }
 @media (max-width: 480px) { .logo-img { height: 44px; } }
 
 .logo-icon {
