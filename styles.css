@@ -219,6 +219,9 @@ header .container {
     transform: translateY(-1px);
 }
 
+.logo-img { height: 48px; width: auto; display: block; object-fit: contain; }
+@media (max-width: 480px) { .logo-img { height: 38px; } }
+
 .logo-icon {
     width: 42px;
     height: 42px;
