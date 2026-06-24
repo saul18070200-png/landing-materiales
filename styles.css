@@ -961,6 +961,10 @@ footer {
     color: var(--gray);
 }
 
+@media (max-width: 968px) {
+    .footer-brand .logo-img { display: none; }
+}
+
 .footer-links h4,
 .footer-contact h4 {
     margin-bottom: 2rem;
