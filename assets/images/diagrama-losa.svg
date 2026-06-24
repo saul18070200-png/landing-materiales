@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 295" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="conc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2e8f0"></stop><stop offset="1" stop-color="#cbd5e1"></stop></linearGradient>
+    <linearGradient id="bov" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#64748b"></stop><stop offset="1" stop-color="#475569"></stop></linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fb923c"></stop><stop offset="1" stop-color="#ea580c"></stop></linearGradient>
+  </defs>
+  <!-- firme de compresion -->
+  <rect x="30" y="44" width="420" height="24" rx="2" fill="url(#conc)" stroke="#94a3b8" stroke-width="1.5"></rect>
+  <!-- malla electrosoldada (puntos) -->
+  <line x1="40" y1="52" x2="440" y2="52" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 8"></line>
+  <!-- nervaduras de concreto (colado entre piezas) -->
+  <rect x="153" y="64" width="26" height="88" fill="url(#conc)" stroke="#94a3b8" stroke-width="1.5"></rect>
+  <rect x="302" y="64" width="26" height="88" fill="url(#conc)" stroke="#94a3b8" stroke-width="1.5"></rect>
+  <!-- bovedillas o casetones (aligerante) -->
+  <rect x="30"  y="70" width="123" height="80" rx="3" fill="url(#bov)" stroke="#334155" stroke-width="1.5"></rect>
+  <rect x="179" y="70" width="123" height="80" rx="3" fill="url(#bov)" stroke="#334155" stroke-width="1.5"></rect>
+  <rect x="328" y="70" width="122" height="80" rx="3" fill="url(#bov)" stroke="#334155" stroke-width="1.5"></rect>
+  <!-- highlight superior bovedillas -->
+  <rect x="30"  y="70" width="123" height="9" rx="3" fill="#94a3b8" opacity="0.6"></rect>
+  <rect x="179" y="70" width="123" height="9" rx="3" fill="#94a3b8" opacity="0.6"></rect>
+  <rect x="328" y="70" width="122" height="9" rx="3" fill="#94a3b8" opacity="0.6"></rect>
+  <!-- semiviguetas: patin + alma abierta (acero) -->
+  <g>
+    <rect x="144" y="150" width="44" height="13" rx="2" fill="url(#steel)"></rect>
+    <polyline points="156,151 166,82 176,151" fill="none" stroke="url(#steel)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></polyline>
+    <rect x="293" y="150" width="44" height="13" rx="2" fill="url(#steel)"></rect>
+    <polyline points="305,151 315,82 325,151" fill="none" stroke="url(#steel)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></polyline>
+  </g>
+  <!-- leyenda -->
+  <rect x="40" y="196" width="20" height="20" rx="3" fill="url(#steel)"></rect>
+  <text x="70" y="211" fill="#e2e8f0" font-size="15" font-weight="700">Semivigueta (elemento precolado)</text>
+  <rect x="40" y="226" width="20" height="20" rx="3" fill="url(#bov)" stroke="#334155"></rect>
+  <text x="70" y="241" fill="#e2e8f0" font-size="15" font-weight="700">Bovedilla o Caseton (aligerante)</text>
+  <rect x="40" y="256" width="20" height="20" rx="3" fill="url(#conc)" stroke="#94a3b8"></rect>
+  <text x="70" y="271" fill="#e2e8f0" font-size="15" font-weight="700">Firme de compresion (colado en obra)</text>
+</svg>

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1220"></stop>
+      <stop offset="0.55" stop-color="#0f172a"></stop>
+      <stop offset="1" stop-color="#1e293b"></stop>
+    </linearGradient>
+    <linearGradient id="slabTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#475569"></stop>
+      <stop offset="1" stop-color="#334155"></stop>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f97316" stop-opacity="0.18"></stop>
+      <stop offset="1" stop-color="#f97316" stop-opacity="0"></stop>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1600" height="900" fill="url(#sky)"></rect>
+  <rect x="0" y="0" width="900" height="900" fill="url(#glow)"></rect>
+  <!-- blueprint grid -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.6">
+    <line x1="0" y1="0" x2="0" y2="900"></line>
+    <line x1="64" y1="0" x2="64" y2="900"></line>
+    <line x1="128" y1="0" x2="128" y2="900"></line>
+    <line x1="192" y1="0" x2="192" y2="900"></line>
+    <line x1="256" y1="0" x2="256" y2="900"></line>
+    <line x1="320" y1="0" x2="320" y2="900"></line>
+    <line x1="384" y1="0" x2="384" y2="900"></line>
+    <line x1="448" y1="0" x2="448" y2="900"></line>
+    <line x1="512" y1="0" x2="512" y2="900"></line>
+    <line x1="576" y1="0" x2="576" y2="900"></line>
+    <line x1="640" y1="0" x2="640" y2="900"></line>
+    <line x1="704" y1="0" x2="704" y2="900"></line>
+    <line x1="768" y1="0" x2="768" y2="900"></line>
+    <line x1="832" y1="0" x2="832" y2="900"></line>
+    <line x1="896" y1="0" x2="896" y2="900"></line>
+    <line x1="960" y1="0" x2="960" y2="900"></line>
+    <line x1="1024" y1="0" x2="1024" y2="900"></line>
+    <line x1="1088" y1="0" x2="1088" y2="900"></line>
+    <line x1="1152" y1="0" x2="1152" y2="900"></line>
+    <line x1="1216" y1="0" x2="1216" y2="900"></line>
+    <line x1="1280" y1="0" x2="1280" y2="900"></line>
+    <line x1="1344" y1="0" x2="1344" y2="900"></line>
+    <line x1="1408" y1="0" x2="1408" y2="900"></line>
+    <line x1="1472" y1="0" x2="1472" y2="900"></line>
+    <line x1="1536" y1="0" x2="1536" y2="900"></line>
+    <line x1="1600" y1="0" x2="1600" y2="900"></line>
+    <line x1="0" y1="0" x2="1600" y2="0"></line>
+    <line x1="0" y1="64" x2="1600" y2="64"></line>
+    <line x1="0" y1="128" x2="1600" y2="128"></line>
+    <line x1="0" y1="192" x2="1600" y2="192"></line>
+    <line x1="0" y1="256" x2="1600" y2="256"></line>
+    <line x1="0" y1="320" x2="1600" y2="320"></line>
+    <line x1="0" y1="384" x2="1600" y2="384"></line>
+    <line x1="0" y1="448" x2="1600" y2="448"></line>
+    <line x1="0" y1="512" x2="1600" y2="512"></line>
+    <line x1="0" y1="576" x2="1600" y2="576"></line>
+    <line x1="0" y1="640" x2="1600" y2="640"></line>
+    <line x1="0" y1="704" x2="1600" y2="704"></line>
+    <line x1="0" y1="768" x2="1600" y2="768"></line>
+    <line x1="0" y1="832" x2="1600" y2="832"></line>
+    <line x1="0" y1="896" x2="1600" y2="896"></line>
+  </g>
+  <!-- isometric slab system, lower right -->
+  <g opacity="0.9">
+    <polygon points="760,470 850,470 890,496 800,496" fill="url(#slabTop)" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="800,496 890,496 890,566 800,566" fill="#334155" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="782,496 800,496 800,566 782,566" fill="#ea580c" stroke="#0f172a" stroke-width="1"></polygon>
+    <polygon points="878,462 968,462 1008,488 918,488" fill="url(#slabTop)" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="918,488 1008,488 1008,558 918,558" fill="#334155" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="900,488 918,488 918,558 900,558" fill="#ea580c" stroke="#0f172a" stroke-width="1"></polygon>
+    <polygon points="996,454 1086,454 1126,480 1036,480" fill="url(#slabTop)" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="1036,480 1126,480 1126,550 1036,550" fill="#334155" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="1018,480 1036,480 1036,550 1018,550" fill="#ea580c" stroke="#0f172a" stroke-width="1"></polygon>
+    <polygon points="1114,446 1204,446 1244,472 1154,472" fill="url(#slabTop)" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="1154,472 1244,472 1244,542 1154,542" fill="#334155" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="1136,472 1154,472 1154,542 1136,542" fill="#ea580c" stroke="#0f172a" stroke-width="1"></polygon>
+    <polygon points="1232,438 1322,438 1362,464 1272,464" fill="url(#slabTop)" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="1272,464 1362,464 1362,534 1272,534" fill="#334155" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="1254,464 1272,464 1272,534 1254,534" fill="#ea580c" stroke="#0f172a" stroke-width="1"></polygon>
+    <polygon points="1350,430 1440,430 1480,456 1390,456" fill="url(#slabTop)" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="1390,456 1480,456 1480,526 1390,526" fill="#334155" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="1372,456 1390,456 1390,526 1372,526" fill="#ea580c" stroke="#0f172a" stroke-width="1"></polygon>
+    <polygon points="1468,422 1558,422 1598,448 1508,448" fill="url(#slabTop)" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="1508,448 1598,448 1598,518 1508,518" fill="#334155" stroke="#0f172a" stroke-width="2"></polygon>
+    <polygon points="1490,448 1508,448 1508,518 1490,518" fill="#ea580c" stroke="#0f172a" stroke-width="1"></polygon>
+  </g>
+  <!-- concrete topping line -->
+  <polygon points="760,462 1560,406 1560,440 760,496" fill="#f97316" opacity="0.25"></polygon>
+</svg>

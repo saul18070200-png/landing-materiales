@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"></stop>
+      <stop offset="1" stop-color="#0f172a"></stop>
+    </linearGradient>
+    <linearGradient id="cTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f1f5f9"></stop>
+      <stop offset="1" stop-color="#cbd5e1"></stop>
+    </linearGradient>
+    <linearGradient id="cFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cbd5e1"></stop>
+      <stop offset="1" stop-color="#94a3b8"></stop>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="600" height="420" fill="url(#bg2)"></rect>
+  <!-- bovedilla trasera -->
+  <g opacity="0.55">
+    <polygon points="250,120 470,120 540,160 320,160" fill="url(#cTop)"></polygon>
+    <polygon points="320,160 540,160 540,250 320,250" fill="url(#cFront)"></polygon>
+    <path d="M360 250 Q430 205 500 250 Z" fill="#0f172a"></path>
+  </g>
+  <!-- bovedilla principal (isometrico) -->
+  <!-- cara superior -->
+  <polygon points="120,180 360,180 430,225 190,225" fill="url(#cTop)" stroke="#64748b" stroke-width="2"></polygon>
+  <!-- cara lateral -->
+  <polygon points="360,180 430,225 430,330 360,285" fill="#94a3b8" stroke="#64748b" stroke-width="2"></polygon>
+  <!-- cara frontal -->
+  <polygon points="120,180 360,180 360,285 120,285" fill="url(#cFront)" stroke="#64748b" stroke-width="2"></polygon>
+  <!-- boveda (arco hueco inferior) -->
+  <path d="M155 285 Q240 215 325 285 Z" fill="#0f172a"></path>
+  <!-- linea acento -->
+  <line x1="120" y1="180" x2="360" y2="180" stroke="#fb923c" stroke-width="3"></line>
+  <text x="300" y="392" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">BOVEDILLA DE CONCRETO</text>
+</svg>

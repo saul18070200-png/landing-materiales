@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#334155"></stop>
+      <stop offset="1" stop-color="#0f172a"></stop>
+    </linearGradient>
+    <linearGradient id="epsTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"></stop>
+      <stop offset="1" stop-color="#e2e8f0"></stop>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="600" height="420" fill="url(#bg3)"></rect>
+  <g stroke="#475569" stroke-width="2">
+    <!-- bloque 1 -->
+    <polygon points="120,150 230,150 270,182 160,182" fill="url(#epsTop)"></polygon>
+    <polygon points="120,150 160,182 160,262 120,230" fill="#cbd5e1"></polygon>
+    <polygon points="160,182 270,182 270,262 160,262" fill="#f1f5f9"></polygon>
+    <!-- bloque 2 -->
+    <polygon points="290,150 400,150 440,182 330,182" fill="url(#epsTop)"></polygon>
+    <polygon points="290,150 330,182 330,262 290,230" fill="#cbd5e1"></polygon>
+    <polygon points="330,182 440,182 440,262 330,262" fill="#f1f5f9"></polygon>
+    <!-- bloque 3 (frente abajo) -->
+    <polygon points="200,235 310,235 350,267 240,267" fill="url(#epsTop)"></polygon>
+    <polygon points="200,235 240,267 240,347 200,315" fill="#cbd5e1"></polygon>
+    <polygon points="240,267 350,267 350,347 240,347" fill="#ffffff"></polygon>
+  </g>
+  <!-- nervaduras de concreto (lineas) -->
+  <g stroke="#fb923c" stroke-width="3" opacity="0.85">
+    <line x1="270" y1="182" x2="290" y2="182"></line>
+    <line x1="160" y1="262" x2="240" y2="267"></line>
+  </g>
+  <text x="300" y="392" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">CASETON DE POLIESTIRENO</text>
+</svg>

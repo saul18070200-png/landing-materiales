@@ -1,504 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Venta de materiales de construcción de alta calidad en Querétaro. Vigueta, bovedilla, y más. ¡Pide tu cotización por WhatsApp!">
-    <title>Materiales de Construcción | Vigueta y Bovedilla Premium</title>
+    <meta name="description" content="Venta de Vigueta, Bovedilla y Casetón en Querétaro. Sistemas prefabricados para losas con entrega a obra. ¡Cotiza por WhatsApp!">
+    <title>Vigueta, Bovedilla y Casetón | Prefabricados MP Querétaro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@400;600;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏗️</text></svg>">
+    <link rel="icon" href="assets/favicon.svg">
+    <meta name="theme-color" content="#0F172A">
+    <meta name="author" content="Prefabricados MP">
+    <meta property="og:title" content="Vigueta, Bovedilla y Casetón | Prefabricados MP Querétaro">
+    <meta property="og:description" content="Sistemas prefabricados para losas en Querétaro. Vigueta, bovedilla y casetón con entrega a obra. Cotiza por WhatsApp.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HardwareStore",
+      "name": "Prefabricados MP",
+      "description": "Venta de vigueta, bovedilla y casetón. Sistemas prefabricados para losas con entrega a obra en Querétaro y zona metropolitana.",
+      "telephone": "+52 442 425 3643",
+      "areaServed": ["Querétaro", "El Marqués", "Corregidora", "San Juan del Río"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Querétaro",
+        "addressRegion": "Querétaro",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "14:00"
+        }
+      ]
+    }
+    </script>
 </head>
-
 <body>
-    <header id="header">
-        <div class="container">
-            <a href="#inicio" class="logo">
-                <div class="logo-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 4H10V10H4V4Z" fill="white" />
-                        <path d="M14 4H20V10H14V4Z" fill="white" fill-opacity="0.8" />
-                        <path d="M4 14H10V20H4V14Z" fill="white" fill-opacity="0.8" />
-                        <path d="M14 14H20V20H14V14Z" fill="white" fill-opacity="0.4" />
-                    </svg>
-                </div>
-                <div class="logo-text">
-                    <span class="brand-heavy">MATERIALES</span>
-                    <span class="brand-divider">|</span>
-                    <span class="brand-light">PREFABRICADOS MP</span>
-                </div>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#soluciones">Soluciones</a></li>
-                    <li><a href="#beneficios">Beneficios</a></li>
-                    <li><a href="https://wa.me/524424253643?text=Hola,%20quisiera%20una%20cotización%20especializada"
-                            class="btn-primary-sm">Presupuesto Rápido</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section id="inicio" class="hero">
-        <div class="container hero-content">
-            <h1 class="fade-in">Soluciones Maestras en <span>Materiales y Prefabricados</span></h1>
-            <p class="fade-in-delay">Suministramos sistemas estructurales certificados con la logística que tu proyecto
-                exige.
-                Expertos en Querétaro con entrega inmediata y asesoría técnica especializada.</p>
-            <div class="hero-btns fade-in-delay">
-                <a href="https://wa.me/524424253643?text=Hola,%20necesito%20una%20cotización%20integral%20para%20mi%20proyecto"
-                    class="btn-primary">Solicitar Cotización de Proyecto</a>
-                <a href="#soluciones" class="btn-secondary">Ver Nuestras Soluciones</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products" id="soluciones">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nuestras Soluciones</h2>
-                <p>Materiales de ingeniería diseñados para superar los estándares de la industria.</p>
-            </div>
-            <div class="product-grid">
-                <!-- Obra Negra -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="assets/images/vigueta.jpg" alt="Sistema Vigueta y Bovedilla">
-                        <div class="product-overlay"></div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category-tag">Solución Estructural</span>
-                        <h3>Vigueta y Bovedilla</h3>
-                        <p>Sistemas prefabricados de alta resistencia para losas eficientes y seguras.</p>
-                        <a href="https://wa.me/524424253643?text=Hola,%20cotización%20vigueta%20y%20bovedilla"
-                            class="product-cta">Pedir Presupuesto</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="assets/images/cemento.jpg" alt="Cemento de Alta Resistencia">
-                        <div class="product-overlay"></div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category-tag">Obra Negra</span>
-                        <h3>Cemento y Agregados</h3>
-                        <p>Suministro de cemento de alta resistencia y agregados de trituración controlada.</p>
-                        <a href="https://wa.me/524424253643?text=Hola,%20precio%20de%20cemento"
-                            class="product-cta">Cotizar por Volumen</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="assets/images/acero.jpg" alt="Acero de Refuerzo">
-                        <div class="product-overlay"></div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category-tag">Estructura</span>
-                        <h3>Acero y Varilla</h3>
-                        <p>Acero de refuerzo certificado ASTM en todas las medidas comerciales y estructurales.</p>
-                        <a href="https://wa.me/524424253643?text=Hola,%20precio%20de%20varilla"
-                            class="product-cta">Consultar Medidas</a>
-                    </div>
-                </div>
-
-                <!-- Plomería -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="assets/images/plomeria.jpg" alt="Sistemas de Plomería">
-                        <div class="product-overlay"></div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category-tag">Instalaciones</span>
-                        <h3>Hidráulico y Sanitario</h3>
-                        <p>Tuberías y conexiones de PVC/CPVC de alta presión y durabilidad.</p>
-                        <a href="https://wa.me/524424253643?text=Hola,%20material%20de%20plomeria"
-                            class="product-cta">Ver Catálogo Técnico</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="assets/images/tinacos.jpg" alt="Almacenamiento de Agua">
-                        <div class="product-overlay"></div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category-tag">Almacenamiento</span>
-                        <h3>Tinacos y Cisternas</h3>
-                        <p>Soluciones certificadas para el almacenamiento seguro de agua potable.</p>
-                        <a href="https://wa.me/524424253643?text=Hola,%20precio%20de%20tinacos"
-                            class="product-cta">Cotizar Dimensiones</a>
-                    </div>
-                </div>
-
-                <!-- Eléctrico -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="assets/images/electrico.jpg" alt="Material Eléctrico">
-                        <div class="product-overlay"></div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category-tag">Energía</span>
-                        <h3>Material Eléctrico</h3>
-                        <p>Conductores, canalizaciones y centros de carga para proyectos industriales.</p>
-                        <a href="https://wa.me/524424253643?text=Hola,%20precio%20de%20material%20electrico"
-                            class="product-cta">Solicitar Cotización</a>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-        <!-- Delivery to Construction Sites Section -->
-        <section class="delivery-section">
-            <div class="container">
-                <div class="delivery-content grid-2">
-                    <div class="delivery-info">
-                        <h2 class="section-title left">Entregas Directas a Obra</h2>
-                        <p class="delivery-description">Logística especializada para que tus materiales lleguen justo
-                            cuando
-                            los necesitas.</p>
-                        <div class="delivery-features">
-                            <div class="delivery-feature">
-                                <span class="feature-icon">🚚</span>
-                                <div>
-                                    <h4>Entrega Programada</h4>
-                                    <p>Coordina la llegada de materiales según tu cronograma de obra.</p>
-                                </div>
-                            </div>
-                            <div class="delivery-feature">
-                                <span class="feature-icon">📍</span>
-                                <div>
-                                    <h4>Cobertura Regional</h4>
-                                    <p>Entregas en Querétaro y zona metropolitana. Consulta cobertura extendida.</p>
-                                </div>
-                            </div>
-                            <div class="delivery-feature">
-                                <span class="feature-icon">⏱️</span>
-                                <div>
-                                    <h4>Tiempos Garantizados</h4>
-                                    <p>24-48 hrs en zona urbana. Entregas express disponibles.</p>
-                                </div>
-                            </div>
-                            <div class="delivery-feature">
-                                <span class="feature-icon">📦</span>
-                                <div>
-                                    <h4>Descarga en Sitio</h4>
-                                    <p>Servicio de descarga y colocación en área de trabajo.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/524424253643?text=Hola,%20necesito%20información%20sobre%20entregas%20a%20obra"
-                            class="btn-primary">Consultar Cobertura</a>
-                    </div>
-                    <div class="delivery-map">
-                        <div class="map-placeholder">
-                            <div class="map-icon">🗺️</div>
-                            <h3>Zona de Cobertura</h3>
-                            <ul class="coverage-list">
-                                <li>✓ Querétaro Centro</li>
-                                <li>✓ Zona Industrial</li>
-                                <li>✓ El Marqués</li>
-                                <li>✓ Corregidora</li>
-                                <li>✓ San Juan del Río</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Comparator Section -->
-        <section class="comparator-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Comparador de Sistemas</h2>
-                    <p>Análisis de rendimiento para optimizar la elección de materiales en tu obra.</p>
-                </div>
-                <div class="comparison-table-wrapper">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Característica</th>
-                                <th>Vigueta Pretensada</th>
-                                <th>Vigueta Armada</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Resistencia</td>
-                                <td><span class="check">✓</span> Alta (f'c 350 kg/cm²)</td>
-                                <td><span class="check">✓</span> Media (f'c 250 kg/cm²)</td>
-                            </tr>
-                            <tr>
-                                <td>Claros Máximos</td>
-                                <td>Hasta 8 metros</td>
-                                <td>Hasta 6 metros</td>
-                            </tr>
-                            <tr>
-                                <td>Tiempo de Instalación</td>
-                                <td><span class="check">✓</span> Rápido</td>
-                                <td>Estándar</td>
-                            </tr>
-                            <tr>
-                                <td>Costo</td>
-                                <td>$$</td>
-                                <td>$</td>
-                            </tr>
-                            <tr>
-                                <td>Aplicaciones</td>
-                                <td>Comercial, Industrial</td>
-                                <td>Residencial, Comercial</td>
-                            </tr>
-                            <tr>
-                                <td>Disponibilidad</td>
-                                <td><span class="check">✓</span> Inmediata</td>
-                                <td><span class="check">✓</span> Inmediata</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="comparison-note">¿Necesitas ayuda para elegir? <a
-                        href="https://wa.me/524424253643?text=Hola,%20necesito%20asesoría%20técnica">Contacta a un
-                        asesor
-                        técnico</a></p>
-            </div>
-        </section>
-
-        <section id="cotizar" class="quote-form-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Solicita una Cotización Profesional</h2>
-                    <p>Completa los datos de tu proyecto y recibe una propuesta técnica personalizada en menos de 30
-                        minutos.</p>
-                </div>
-
-                <div class="quote-form-container">
-                    <form id="quoteForm">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="projectType">Tipo de Proyecto *</label>
-                                <select id="projectType" name="projectType" required>
-                                    <option value="">Selecciona una opción</option>
-                                    <option value="residencial">Residencial</option>
-                                    <option value="comercial">Comercial</option>
-                                    <option value="industrial">Industrial</option>
-                                    <option value="infraestructura">Infraestructura</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="constructionArea">Área de Construcción (m²) *</label>
-                                <input type="number" id="constructionArea" name="constructionArea" placeholder="Ej: 500"
-                                    required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="timeline">Plazo del Proyecto *</label>
-                                <select id="timeline" name="timeline" required>
-                                    <option value="">Selecciona un plazo</option>
-                                    <option value="urgente">Urgente (1-2 semanas)</option>
-                                    <option value="corto">Corto plazo (1 mes)</option>
-                                    <option value="mediano">Mediano plazo (2-3 meses)</option>
-                                    <option value="largo">Largo plazo (+3 meses)</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="deliveryAddress">Dirección de Entrega *</label>
-                                <input type="text" id="deliveryAddress" name="deliveryAddress"
-                                    placeholder="Calle, Colonia, Ciudad" required>
-                            </div>
-
-                            <div class="form-group full-width">
-                                <label for="materials">Materiales Requeridos *</label>
-                                <textarea id="materials" name="materials" rows="3"
-                                    placeholder="Describe los materiales que necesitas (ej: Vigueta y bovedilla para 200m², Cemento, Acero...)"
-                                    required></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="contactName">Nombre Completo *</label>
-                                <input type="text" id="contactName" name="contactName" placeholder="Tu nombre" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="contactPhone">Teléfono *</label>
-                                <input type="tel" id="contactPhone" name="contactPhone" placeholder="442 123 4567"
-                                    required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="contactEmail">Email</label>
-                                <input type="email" id="contactEmail" name="contactEmail" placeholder="tu@email.com">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="contactMethod">Método de Contacto Preferido *</label>
-                                <select id="contactMethod" name="contactMethod" required>
-                                    <option value="whatsapp">WhatsApp</option>
-                                    <option value="llamada">Llamada telefónica</option>
-                                    <option value="email">Email</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div style="text-align: center; margin-top: 3rem;">
-                            <button type="submit" class="btn-primary-large">Enviar Solicitud de Cotización</button>
-                            <p style="margin-top: 1rem; color: var(--gray); font-size: 0.9rem;">* Respuesta en menos de
-                                30
-                                minutos.</p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Guarantees & Support Section -->
-        <section class="guarantees-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Nuestras Garantías</h2>
-                    <p>Seguridad y soporte técnico permanente en cada etapa de suministro.</p>
-                </div>
-
-                <div class="guarantees-grid">
-                    <div class="guarantee-card">
-                        <div class="guarantee-icon">🛡️</div>
-                        <h3>Garantía de Calidad</h3>
-                        <p>Todos nuestros materiales cuentan con certificaciones NOM y garantía contra defectos de
-                            fabricación.</p>
-                    </div>
-
-                    <div class="guarantee-card">
-                        <div class="guarantee-icon">👷</div>
-                        <h3>Asesoría Técnica</h3>
-                        <p>Equipo de ingenieros disponible para resolver dudas técnicas y optimizar tu proyecto.</p>
-                    </div>
-
-
-                    <div class="guarantee-card">
-                        <div class="guarantee-icon">📞</div>
-                        <h3>Soporte en Obra</h3>
-                        <p>Visitas técnicas a obra para verificación de instalación y resolución de imprevistos.</p>
-                    </div>
-                </div>
-
-
-                <div class="support-contact">
-                    <h3>Soporte Técnico Directo</h3>
-                    <p>Línea exclusiva para arquitectos e ingenieros</p>
-                    <a href="https://wa.me/524424253643?text=Hola,%20necesito%20soporte%20técnico" class="btn-primary">
-                        Contactar Soporte Técnico
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="beneficios" class="benefits">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Cotiza tu Proyecto</h2>
-                    <p>Estructura, logística y asesoría técnica de primer nivel para tu obra.</p>
-                </div>
-                <div class="benefits-content">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">✓</div>
-                        <div>
-                            <h3>Entrega Inmediata</h3>
-                            <p>Contamos con stock permanente para que tu obra no se detenga.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">✓</div>
-                        <div>
-                            <h3>Asesoría Técnica</h3>
-                            <p>Te ayudamos a calcular los materiales exactos para tu proyecto.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">✓</div>
-                        <div>
-                            <h3>Precios Directos</h3>
-                            <p>Sin intermediarios. El mejor costo-beneficio del mercado.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-banner">
-            <div class="container text-center">
-                <h2>¿Listo para empezar tu obra?</h2>
-                <p>Envíanos un mensaje y recibe una cotización personalizada en minutos.</p>
-                <a href="https://wa.me/524424253643?text=Hola,%20vengo%20de%20la%20web%20y%20quiero%20cotizar"
-                    class="btn-primary-large">Enviar WhatsApp Ahora</a>
-            </div>
-        </section>
-
-        <footer>
-            <div class="container footer-grid">
-                <div class="footer-brand">
-                    <a href="#inicio" class="logo">
-                        <div class="logo-icon">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 4H10V10H4V4Z" fill="white" />
-                                <path d="M14 4H20V10H14V4Z" fill="white" fill-opacity="0.8" />
-                                <path d="M4 14H10V20H4V14Z" fill="white" fill-opacity="0.8" />
-                                <path d="M14 14H20V20H14V14Z" fill="white" fill-opacity="0.4" />
-                            </svg>
-                        </div>
-                        <div class="logo-text">
-                            <span class="brand-heavy">MATERIALES</span>
-                            <span class="brand-divider">|</span>
-                            <span class="brand-light">PREFABRICADOS MP</span>
-                        </div>
-                    </a>
-                    <p>Expertos en sistemas estructurales y suministro de materiales para la construcción moderna.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Navegación</h4>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#soluciones">Soluciones</a></li>
-                        <li><a href="#beneficios">Beneficios</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contacto</h4>
-                    <p>📍 Querétaro, México</p>
-                    <p>📞 4424253643</p>
-                    <p>✉️ ventas@materialesqro.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <p>&copy; 2026 Materiales y Prefabricados desarrollado por <a href="https://novaxmx.com"
-                            target="_blank" style="color: inherit; text-decoration: underline;">Novaxmx.com</a></p>
-                </div>
-            </div>
-        </footer>
-
-        <a href="https://wa.me/524424253643" class="whatsapp-float" target="_blank">
-            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
-                <path
-                    d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.598.073-1.697-.363-1.139-.456-1.907-1.42-1.963-1.496-.057-.077-.461-.611-.461-1.166 0-.554.29-.826.393-.935.105-.108.23-.135.306-.135.076 0 .152 0 .219.003.069.003.158-.026.247.189.102.247.348.847.378.908.03.06.05.129.01.21-.04.08-.09.13-.135.191-.046.06-.096.126-.14.195-.045.07-.091.144-.031.25.06.105.267.44.573.71.393.348.724.456.829.508.105.05.166.04.228-.03.062-.07.265-.308.337-.413.072-.105.144-.087.243-.05.1.037.63.298.738.353.11.055.183.101.21.146.026.046.026.265-.118.67zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.182L2 22l4.945-1.298C8.36 21.503 10.103 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
-            </svg>
-        </a>
-
-
-        <script src="script.js"></script>
-</body>
-
-</html>
+<header id="header"><div class="container">
+    <a href="#inicio" class="logo"><div class="logo-icon-txt">MP</div>
+        <div class="logo-text"><span class="brand-heavy">PREFABRICADOS</span><span class="brand-divider">|</span><span class="brand-light">MP</span></div></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav id="mainnav"><ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        
+        <li><a href="#materiales">Sobre Pedido</a></li><li><a href="#contacto">Contacto</a></li><li><a href="#faq">Preguntas</a></li>
+        <li><a href="https://wa.me/524424253643?text=Hola,%20cotizacion%20vigueta%20bovedilla%20y%20caseton" class="btn-primary-sm">Cotizar Ahora</a></li>
+    </ul></nav>
+</div></header>
+<section id="inicio" class="hero"><div class="container hero-content">
+    <p class="hero-eyebrow fade-in">SISTEMAS PREFABRICADOS PARA LOSAS &middot; QUERÉTARO</p>
+    <h1 class="fade-in">Vigueta, Bovedilla <span>y Casetón</span></h1>
+    <p class="hero-slogan fade-in-delay">El aliado que tu obra necesita.</p>
+    <p class="fade-in-delay">Fabricamos y suministramos sistemas de losa aligerada con control de calidad. Semivigueta de alma abierta, bovedilla de concreto o poliestireno y casetón para losas nervadas. Entrega directa a tu obra.</p>
+    <div class="hero-btns fade-in-delay">
+        <a href="https://wa.me/524424253643?text=Hola,%20necesito%20cotizacion%20de%20vigueta%20bovedilla%20y%20caseton" class="btn-primary">Solicitar Cotización</a>
+        <a href="#productos" class="btn-secondary">Ver Productos</a>
+    </div>
+    <div class="hero-stats fade-in-delay">
+        <div class="stat-item"><span class="stat-num">+500</span><span class="stat-label">Obras entregadas</span></div>
+        <div class="stat-item"><span class="stat-num">24 hrs</span><span class="stat-label">Entrega en Qro</span></div>
+        <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Sistemas de losa</span></div>
+    </div>
+</div></section>
+<section class="products" id="productos"><div class="container">
+    <div class="section-header"><h2 class="section-title">Nuestros Productos</h2>
+        <p>Elementos prefabricados para losas aligeradas eficientes, seguras y de rápida instalación.</p></div>
+    <div class="product-grid">
+        <div class="product-card product-card--featured">
+            <div class="product-badge">MÁS VENDIDO</div>
+            <div class="product-image"><img src="assets/images/vigueta-foto.jpg" alt="Semivigueta de Alma Abierta"><div class="product-overlay"></div></div>
+            <div class="product-info"><span class="category-tag">Elemento Estructural</span><h3>Semivigueta de Alma Abierta</h3>
+                <p>Elemento de concreto reforzado con patín precolado y armadura de alma abierta. Disponible en peraltes P-15 y P-20. El soporte principal de tu sistema de losa.</p>
+                <ul class="product-features"><li>&#10003; Peraltes: 15 y 20 cm</li><li>&#10003; Armadura Gr. 60 (fy 6000 kg/cm2)</li><li>&#10003; Patín de concreto f c 250 kg/cm2</li><li>&#10003; Ligera: 15 kg por metro lineal</li></ul>
+                <button type="button" class="spec-btn" data-spec="vigueta">Ver ficha técnica</button><a href="https://wa.me/524424253643?text=Hola,%20cotizacion%20semivigueta%20de%20alma%20abierta" class="product-cta">Cotizar Vigueta</a>
+            </div></div>
+        <div class="product-card">
+            <div class="product-image"><img src="assets/images/concreto-foto.jpg" alt="Bovedilla de Concreto"><div class="product-overlay"></div></div>
+            <div class="product-info"><span class="category-tag">Pieza Aligerante</span><h3>Bovedilla</h3>
+                <p>Pieza de relleno que se apoya entre semiviguetas para conformar la losa. Disponible en concreto vibrocomprimido o en poliestireno para mayor aislamiento y ligereza.</p>
+                <ul class="product-features"><li>&#10003; Concreto: 75x25x15 y 70x20x20 cm</li><li>&#10003; Poliestireno: 1.22x0.63 m</li><li>&#10003; Peraltes: 15, 20 y 25 cm</li><li>&#10003; Mayor aislamiento térmico (EPS)</li></ul>
+                <button type="button" class="spec-btn" data-spec="bovedilla">Ver ficha técnica</button><a href="https://wa.me/524424253643?text=Hola,%20cotizacion%20bovedilla%20de%20concreto%20o%20poliestireno" class="product-cta">Cotizar Bovedilla</a>
+            </div></div>
+        <div class="product-card">
+            <div class="product-image"><img src="assets/images/caseton-foto.jpg" alt="Casetón de Poliestireno"><div class="product-overlay"></div></div>
+            <div class="product-info"><span class="category-tag">Losa Nervada</span><h3>Casetón de Poliestireno</h3>
+                <p>Bloques de poliestireno expandido para aligerar losas nervadas en una o dos direcciones. Medida estándar 40x40 cm con altura variable; fabricamos a la medida de tu proyecto.</p>
+                <ul class="product-features"><li>&#10003; Medida estándar: 40x40 cm</li><li>&#10003; Altura variable a proyecto</li><li>&#10003; Losas nervadas 1 y 2 direcciones</li><li>&#10003; También placas de poliestireno</li></ul>
+                <button type="button" class="spec-btn" data-spec="caseton">Ver ficha técnica</button><a href="https://wa.me/524424253643?text=Hola,%20cotizacion%20caseton%20de%20poliestireno" class="product-cta">Cotizar Casetón</a>
+            </div></div>
+    </div></div></section>
+<section id="materiales" class="materials-section"><div class="container"><div class="section-header light"><span class="hero-eyebrow">Servicio Adicional</span><h2 class="section-title">Surtimos tu Obra Completa</h2><p>Nuestra especialidad es la vigueta, bovedilla y casetón, pero para que no detengas tu obra también conseguimos materiales de construcción y ferretería en general bajo pedido.</p></div><div class="materials-grid"><div class="material-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg><span>Cemento y agregados</span></div><div class="material-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg><span>Acero y varilla</span></div><div class="material-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><span>Block y tabique</span></div><div class="material-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg><span>Plomeria e hidraulico</span></div><div class="material-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg><span>Material electrico</span></div><div class="material-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg><span>Herramienta</span></div></div><div class="materials-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><p><strong>Materiales sobre pedido y sujetos a disponibilidad.</strong> Consulta tiempos de entrega y mínimos de compra. Mándanos tu lista y te cotizamos todo junto.</p><a href="https://wa.me/524424253643?text=Hola,%20quiero%20cotizar%20materiales%20de%20construccion%20sobre%20pedido" class="btn-primary">Enviar mi Lista</a></div></div></section>
+<section id="contacto" class="contact-section"><div class="container"><div class="section-header"><h2 class="section-title">Contacto y Ubicación</h2><p>Visítanos o escríbenos, con gusto te asesoramos.</p></div><div class="contact-grid grid-2"><div class="contact-card"><div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><div><h4>Dirección</h4><p>Querétaro, México y zona metropolitana</p></div></div><div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><div><h4>Horario</h4><p>Lunes a Viernes 8:00 - 18:00 hrs<br>Sábado 8:00 - 14:00 hrs</p></div></div><div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><div><h4>Teléfono</h4><p><a href="tel:+524424253643">442 425 3643</a></p></div></div><div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"></path></svg><div><h4>WhatsApp</h4><p><a href="https://wa.me/524424253643" target="_blank">Escribir por WhatsApp</a></p></div></div><div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><div><h4>Entrega a obra</h4><p>24 a 48 hrs en zona urbana, con descarga incluida.<br>Cobertura: Querétaro, El Marques, Corregidora y San Juan del Rio.</p></div></div><div class="pay-methods"><h4>Formas de pago</h4><div class="pay-chips"><span>Efectivo</span><span>Transferencia</span><span>Tarjeta</span></div></div><a href="tel:+524424253643" class="btn-primary">Llamar ahora</a></div><div class="contact-map"><iframe src="https://www.google.com/maps?q=Queretaro%2C%20Mexico&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación"></iframe></div></div></div></section>
+<section class="why-section"><div class="container"><div class="why-grid">
+    <div class="why-text">
+        <h2 class="section-title left">Por qué elegir losa aligerada?</h2>
+        <p class="why-intro">El sistema de vigueta, bovedilla y casetón es el más utilizado en México por sus ventajas estructurales, económicas y constructivas.</p>
+        <div class="why-list">
+            <div class="why-item"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div><div><h4>Construcción Rapida</h4><p>Se coloca hasta 3 veces más rápido que una losa maciza colada en sitio. Menos cimbra, menos tiempo, menos mano de obra.</p></div></div>
+            <div class="why-item"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><polyline points="15.5 13 17 22 12 19 7 22 8.5 13"></polyline></svg></div><div><h4>Control de Calidad</h4><p>Elementos fabricados en planta con acero Gr.60 y concreto certificado. Resistencia garantizada en cada pieza.</p></div></div>
+            <div class="why-item"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg></div><div><h4>Ahorro Economico</h4><p>Reduce hasta un 30% el costo de la losa vs losa maciza. Sin desperdicio y sin esperas largas de fraguado.</p></div></div>
+            <div class="why-item"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg></div><div><h4>Mas Ligera y Aislante</h4><p>La bovedilla y el casetón de poliestireno aligeran la estructura y mejoran el aislamiento térmico y acústico.</p></div></div>
+        </div></div>
+    
+</div></div></section>
+<section class="guarantees-section"><div class="container">
+    <div class="section-header"><h2 class="section-title">Por Qué Comprar con Nosotros</h2><p>Calidad, soporte técnico y cumplimiento en cada entrega.</p></div>
+    <div class="guarantees-grid">
+        <div class="guarantee-card"><div class="guarantee-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg></div><h3>Control de Calidad</h3><p>Elementos fabricados con acero Gr.60 y concreto certificado bajo control de calidad en planta.</p></div>
+        <div class="guarantee-card"><div class="guarantee-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><h3>Asesoría Técnica Gratuita</h3><p>Te orientamos con las cantidades de vigueta, bovedilla y casetón para tu losa y resolvemos tus dudas técnicas.</p></div>
+        <div class="guarantee-card"><div class="guarantee-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></div><h3>Soporte en Obra</h3><p>Resolvemos cualquier duda de instalación directamente en tu obra. Tu proyecto no se para.</p></div>
+    </div>
+    
+</div></section>
+<section id="faq" class="faq-section"><div class="container"><div class="section-header"><h2 class="section-title">Preguntas Frecuentes</h2><p>Resolvemos las dudas más comunes sobre vigueta, bovedilla y casetón.</p></div><div class="faq-list"><details class="faq-item"><summary>Cómo calculo cuánta vigueta y bovedilla necesito?</summary><div class="faq-a"><p>Con las medidas de tu losa (largo, ancho y claro) te damos una estimacion aproximada de las piezas que podrias necesitar, sin costo. Mándanos un croquis o las medidas por WhatsApp y te orientamos. Las cantidades finales dependen del diseño y las condiciones de tu obra.</p></div></details><details class="faq-item"><summary>Cuál es la diferencia entre bovedilla de concreto y de poliestireno?</summary><div class="faq-a"><p>La de concreto es más económica y resistente al manejo; la de poliestireno es más ligera y da mejor aislamiento térmico y acústico. Ambas son compatibles con nuestra vigueta.</p></div></details><details class="faq-item"><summary>Cuánto tardan en entregar?</summary><div class="faq-a"><p>En zona urbana de Querétaro normalmente de 24 a 48 horas segun disponibilidad. Para foraneo o pedidos grandes confirmamos el tiempo al momento de cotizar.</p></div></details><details class="faq-item"><summary>Hacen entrega directa a obra?</summary><div class="faq-a"><p>Si, entregamos directo en obra en Querétaro y zona metropolitana, con servicio de descarga. Consulta cobertura extendida para otras zonas.</p></div></details><details class="faq-item"><summary>Qué formas de pago aceptan?</summary><div class="faq-a"><p>Efectivo, transferencia y tarjeta.</p></div></details><details class="faq-item"><summary>Venden otros materiales además de vigueta?</summary><div class="faq-a"><p>Si. Ademas de vigueta, bovedilla y casetón conseguimos materiales de construcción y ferretería en general sobre pedido y segun disponibilidad.</p></div></details></div><p class="comparison-note">No encuentras tu duda? <a href="https://wa.me/524424253643?text=Hola,%20tengo%20una%20pregunta">Preguntanos directo por WhatsApp</a></p></div></section>
+<section class="cta-banner"><div class="container text-center">
+    <h2>Listo para cotizar tu losa?</h2>
+    <p>Mándanos las medidas de tu proyecto y te damos precio en minutos.</p>
+    <a href="https://wa.me/524424253643?text=Hola,%20quiero%20cotizar%20vigueta%20bovedilla%20y%20caseton" class="btn-primary-large">Cotizar por WhatsApp Ahora</a>
+</div></section>
+<footer><div class="container footer-grid">
+    <div class="footer-brand">
+        <a href="#inicio" class="logo"><div class="logo-icon-txt">MP</div>
+            <div class="logo-text"><span class="brand-heavy">PREFABRICADOS</span><span class="brand-divider">|</span><span class="brand-light">MP</span></div></a>
+        <p>Especialistas en vigueta, bovedilla y casetón para la construcción en Querétaro y zona metropolitana.</p></div>
+    <div class="footer-links"><h4>Navegacion</h4><ul>
+        <li><a href="#inicio">Inicio</a></li><li><a href="#productos">Productos</a></li>
+        <li><a href="#materiales">Sobre Pedido</a></li><li><a href="#contacto">Contacto</a></li>
+    </ul></div>
+    <div class="footer-contact"><h4>Contacto</h4>
+        <p>&#128205; Querétaro, México</p><p>&#128222; 442 425 3643</p><p>&#9993; ventas@materialesqro.com</p>
+    </div>
+</div>
+<div class="footer-bottom"><div class="container"><p>&copy; 2026 Prefabricados MP &mdash; desarrollado por <a href="https://novaxmx.com" target="_blank" style="color:inherit;text-decoration:underline;">Novaxmx.com</a></p></div></div>
+</footer>
+<a href="https://wa.me/524424253643" class="whatsapp-float" target="_blank" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" width="30" height="30" fill="#ffffff"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.598.073-1.697-.363-1.139-.456-1.907-1.42-1.963-1.496-.057-.077-.461-.611-.461-1.166 0-.554.29-.826.393-.935.105-.108.23-.135.306-.135.076 0 .152 0 .219.003.069.003.158-.026.247.189.102.247.348.847.378.908.03.06.05.129.01.21-.04.08-.09.13-.135.191-.046.06-.096.126-.14.195-.045.07-.091.144-.031.25.06.105.267.44.573.71.393.348.724.456.829.508.105.05.166.04.228-.03.062-.07.265-.308.337-.413.072-.105.144-.087.243-.05.1.037.63.298.738.353.11.055.183.101.21.146.026.046.026.265-.118.67zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.182L2 22l4.945-1.298C8.36 21.503 10.103 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"></path></svg></a>
+<div class="modal-overlay" id="specModal" aria-hidden="true"><div class="modal-box" role="dialog" aria-modal="true"><button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button><span class="modal-tag" id="modalTag"></span><h3 id="modalTitle"></h3><table class="modal-spec-table"><tbody id="modalBody"></tbody></table><a class="btn-primary" id="modalCta" href="#" target="_blank">Cotizar por WhatsApp</a></div></div>
+<script src="script.js"></script></body></html>
