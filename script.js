@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         vigueta: {
             tag: "Ficha Técnica",
             title: "Semivigueta de Alma Abierta",
+            pdf: "assets/docs/ficha-tecnica-vigueta.pdf",
             wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20semivigueta%20de%20alma%20abierta",
             html: `
                 <div class="modal-kpis">
@@ -75,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bovedilla: {
             tag: "Ficha Técnica",
             title: "Bovedilla",
+            pdf: "assets/docs/ficha-tecnica-bovedilla.pdf",
             wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20bovedilla",
             html: `
                 <div class="modal-section-label">Bovedilla de Concreto</div>
@@ -91,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         caseton: {
             tag: "Ficha Técnica",
             title: "Casetón de Poliestireno",
+            pdf: "assets/docs/ficha-tecnica-caseton.pdf",
             wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20caseton",
             html: `
                 <div class="modal-kpis" style="grid-template-columns:1fr 1fr;">
@@ -113,9 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const mTitle = document.getElementById("modalTitle");
         const mBody = document.getElementById("modalBody");
         const mCta = document.getElementById("modalCta");
+        const mPdf = document.getElementById("modalPdf");
         const openModal = key => {
             const d = specData[key]; if (!d) return;
             mTag.textContent = d.tag; mTitle.textContent = d.title; mCta.href = d.wa;
+            if (mPdf) { if (d.pdf) { mPdf.href = d.pdf; mPdf.style.display = ""; } else { mPdf.style.display = "none"; } }
             mBody.innerHTML = d.html;
             modal.classList.add("open"); document.body.classList.add("modal-open");
             modal.setAttribute("aria-hidden", "false");

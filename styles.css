@@ -1484,8 +1484,10 @@ nav ul li a { letter-spacing: 0.5px; }
 .modal-box h3 { font-size: 1.5rem; color: #fff; margin: 0 0 0.3rem; letter-spacing: -0.4px; }
 .modal-company { font-size: 0.78rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1.5px; }
 .modal-body { padding: 1.8rem 2rem; flex: 1; }
-.modal-footer-bar { padding: 1.2rem 2rem 1.8rem; border-top: 1px solid var(--accent); }
+.modal-footer-bar { padding: 1.2rem 2rem 1.8rem; border-top: 1px solid var(--accent); display: flex; flex-direction: column; gap: 0.7rem; }
 .modal-footer-bar .btn-primary { width: 100%; justify-content: center; gap: 0.6rem; }
+.btn-download { display: inline-flex; align-items: center; justify-content: center; width: 100%; gap: 0.6rem; padding: 0.8rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.82rem; letter-spacing: 1px; border: 2px solid var(--primary); color: var(--primary); background: transparent; transition: var(--transition); }
+.btn-download:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
 body.modal-open { overflow: hidden; }
 
 /* KPIs grandes en el modal */
