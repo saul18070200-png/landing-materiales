@@ -30,9 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("visible"); });
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); revealObserver.unobserve(entry.target); } });
     }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
-    document.querySelectorAll(".product-card, .section-title, .benefit-item, .why-item, .delivery-feature, .guarantee-card, .material-chip").forEach(el => revealObserver.observe(el));
+    document.querySelectorAll(".product-card, .section-title, .why-item, .guarantee-card, .material-chip").forEach(el => {
+        el.classList.add("reveal-init");
+        revealObserver.observe(el);
+    });
 
     // Fichas tecnicas (modal)
     const specData = {
@@ -140,10 +143,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const claro = parseFloat(document.getElementById("calc-claro").value);
         const largo = parseFloat(document.getElementById("calc-largo").value);
         const peralte = document.getElementById("calc-peralte").value;
+        const errEl = document.getElementById("calcError");
         if (!claro || claro <= 0 || !largo || largo <= 0) {
-            alert("Ingresa el claro y el largo de tu losa.");
+            errEl.textContent = "⚠ Ingresa el claro y el largo de tu losa para calcular.";
+            errEl.style.display = "block";
+            document.getElementById("calcResultado").classList.remove("active");
             return;
         }
+        errEl.style.display = "none";
         const ESPACIADO = 0.80;
         const OVERHANG = 0.20;
         const numViguetas = Math.ceil(largo / ESPACIADO);
@@ -166,26 +173,4 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("calcWA").href = "https://wa.me/524424253643?text=" + encodeURIComponent(msg);
     };
 
-    const quoteForm = document.getElementById("quoteForm");
-    if (quoteForm) {
-        quoteForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            const val = id => { const el = document.getElementById(id); return el ? el.value : ""; };
-            const productos = Array.from(document.querySelectorAll("input[name=producto]:checked")).map(c => c.value);
-            if (productos.length === 0) { alert("Selecciona al menos un producto: Vigueta, Bovedilla o Caseton."); return; }
-            const tipo = val("bovedillaType"), peralte = val("peralte"), area = val("constructionArea");
-            const claro = val("clearSpan"), proyecto = val("projectType"), cuando = val("timeline");
-            const dir = val("deliveryAddress"), nombre = val("contactName"), tel = val("contactPhone");
-            const msg = "*SOLICITUD DE COTIZACION*\n\n"
-                + "Productos: " + productos.join(", ") + "\n"
-                + (tipo ? "Pieza aligerante: " + tipo + "\n" : "")
-                + (peralte ? "Peralte: " + peralte + "\n" : "")
-                + "Area de losa: " + area + " m2\n"
-                + (claro ? "Claro: " + claro + " m\n" : "")
-                + "Proyecto: " + proyecto + "\n" + "Cuando: " + cuando + "\n"
-                + "Entrega: " + dir + "\n\n" + "Nombre: " + nombre + "\n" + "Tel: " + tel;
-            window.open("https://wa.me/524424253643?text=" + encodeURIComponent(msg), "_blank");
-            quoteForm.reset();
-        });
-    }
 });
