@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página no encontrada | Prefabricados MP</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0F172A">
+<link rel="icon" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+    background: #0F172A;
+    color: #fff;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .caja { max-width: 520px; }
+  /* El logo normal lleva la palabra en gris oscuro, pensada para fondo claro.
+     Aqui se usa el icono de iOS, que ya viene sobre este mismo navy (#0F172A),
+     y la marca va como texto blanco para que se lea. */
+  img.marca { width: 110px; height: 110px; display: block; margin: 0 auto; }
+  .nombre {
+    font-family: "Outfit", sans-serif; font-weight: 800;
+    font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.9); margin: 0 0 2.5rem;
+  }
+  .codigo {
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(3.5rem, 14vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1;
+    color: #F97316;
+    margin: 0;
+    letter-spacing: -2px;
+  }
+  h1 {
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+    font-weight: 800;
+    margin: 0.75rem 0 0.5rem;
+  }
+  p { color: rgba(255,255,255,0.75); margin: 0 0 2rem; }
+  .botones { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+  a.btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.95rem 1.6rem; border-radius: 8px;
+    font-weight: 700; font-size: 0.95rem; text-decoration: none;
+    letter-spacing: 0.3px; transition: all .25s ease;
+  }
+  a.primario { background: #F97316; color: #fff; }
+  a.primario:hover { background: #C2410C; }
+  a.secundario { border: 2px solid rgba(255,255,255,0.35); color: #fff; }
+  a.secundario:hover { background: #fff; color: #0F172A; border-color: #fff; }
+  a.btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  .pie { margin-top: 2.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+  .pie a { color: #F97316; text-decoration: none; font-weight: 600; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+  <div class="caja">
+    <img src="/assets/apple-touch-icon.png" alt="" class="marca" width="180" height="180">
+    <p class="nombre">Prefabricados MP</p>
+    <p class="codigo">404</p>
+    <h1>Esta página no existe</h1>
+    <p>Puede que el enlace esté mal escrito o que hayamos movido la página. Lo que sí seguimos teniendo es vigueta, bovedilla y casetón.</p>
+    <div class="botones">
+      <a class="btn primario" href="https://wa.me/524428201102?text=Hola,%20quiero%20cotizar%20vigueta%20bovedilla%20y%20caseton" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+      <a class="btn secundario" href="/">Ir al inicio</a>
+    </div>
+    <p class="pie">O llámanos al <a href="tel:+524428201102">442 820 1102</a> &middot; Isaac Mojica</p>
+  </div>
+</body>
+</html>

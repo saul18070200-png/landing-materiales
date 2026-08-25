@@ -195,3 +195,24 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 });
+
+// Medicion de contactos. Va fuera del DOMContentLoaded principal a proposito:
+// si algo falla alla adentro, el seguimiento de leads sigue funcionando.
+// No hace nada hasta que se configure GA_ID en el head de index.html.
+document.addEventListener("DOMContentLoaded", () => {
+    const SELECTOR = 'a[href^="https://wa.me/"], a[href^="tel:"], #calcWA, #modalCta';
+    document.querySelectorAll(SELECTOR).forEach(a => {
+        a.addEventListener("click", () => {
+            if (typeof window.gtag !== "function") return;
+            const esWhats = a.href.indexOf("wa.me") > -1;
+            const origen = a.getAttribute("data-origen")
+                || a.getAttribute("aria-label")
+                || a.textContent.trim().slice(0, 40)
+                || "sin-etiqueta";
+            window.gtag("event", "contacto", {
+                canal: esWhats ? "whatsapp" : "telefono",
+                origen: origen
+            });
+        });
+    });
+});

@@ -34,3 +34,17 @@ sleep 2
 
 echo "Logo regenerado en $OUT"
 ls -la "$OUT"
+
+echo "Generando apple-touch-icon..."
+ICONO="$(cd "$SRC/.." && pwd)/apple-touch-icon.png"
+
+"$CHROME" \
+  --headless=new --disable-gpu --hide-scrollbars \
+  --force-device-scale-factor=1 \
+  --window-size=180,180 \
+  --virtual-time-budget=5000 \
+  --screenshot="$(cygpath -w "$ICONO")" \
+  "http://localhost:$PUERTO/assets/logo-src/apple-touch-icon.html" 2>/dev/null
+
+echo "Icono de iOS regenerado en $ICONO"
+ls -la "$ICONO"

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>apple-touch-icon</title>
+<style>
+  /* Icono de 180x180 para "Agregar a pantalla de inicio" en iOS.
+     iOS ignora los SVG y no respeta transparencia, por eso va un PNG opaco.
+     Las esquinas redondeadas las pone iOS: aqui van cuadradas a proposito.
+
+     El simbolo del logo ocupa exactamente x 28-324, y 26-126 del original
+     de 361x180 (medido con canvas), o sea 297x101. Se recorta por
+     background-position con un factor de escala s = 168/297 = 0.56566
+     para que quede lo mas grande posible sin tocar los bordes. */
+  html, body { margin: 0; padding: 0; }
+
+  .icono {
+    width: 180px; height: 180px;
+    background: #0F172A;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .marca {
+    width: 168px;
+    height: 57.13px;             /* 101 * 0.56566 */
+    background-image: url("../logo-materiales-mp.png");
+    background-repeat: no-repeat;
+    background-size: 204.2px 101.82px;   /* 361 * s  y  180 * s */
+    background-position: -15.84px -14.71px;  /* -28 * s  y  -26 * s */
+  }
+</style>
+</head>
+<body>
+  <div class="icono"><div class="marca"></div></div>
+</body>
+</html>

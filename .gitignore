@@ -1,0 +1,22 @@
+# Basura de Windows y OneDrive
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.stackdump
+
+# macOS, por si alguien abre el repo desde una Mac
+.DS_Store
+._*
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Archivos temporales de pruebas (arneses de medicion, capturas sueltas)
+_test-*.html
+_probe-*.html
+_v.html
+*.bak
