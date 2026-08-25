@@ -807,6 +807,7 @@ img { max-width: 100%; }
 .contact-row a:hover { text-decoration: underline; }
 .contact-row em { color: #94a3b8; font-size: 0.85rem; }
 .contact-meta { color: #94a3b8; font-size: 0.85rem; font-weight: 400; }
+.contact-row a[href^="mailto:"] { overflow-wrap: anywhere; }
 .contact-link { display: inline-block; margin-top: 0.45rem; font-size: 0.9rem; }
 .pay-methods h4 { font-size: 0.95rem; margin-bottom: 0.6rem; color: var(--primary); }
 .pay-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
