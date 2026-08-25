@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Carpetas de trabajo: fuentes con las que se generan los PDF y el logo.
+# Se versionan para poder regenerarlos, pero no deben aparecer en buscadores.
+Disallow: /assets/docs/src/
+Disallow: /assets/logo-src/
+
+Sitemap: https://prefabricadosmp.com/sitemap.xml

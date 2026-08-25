@@ -1,0 +1,116 @@
+/* Hoja de estilo compartida de las fichas tecnicas de Prefabricados MP.
+   Se imprime a PDF con Chrome headless. Ver assets/docs/src/generar-pdf.sh */
+
+@page { size: A4; margin: 11mm 12mm; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Inter", system-ui, -apple-system, sans-serif;
+  color: #0F172A;
+  font-size: 9.8pt;
+  line-height: 1.42;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- encabezado ---------- */
+.hoja-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 3px solid #F97316;
+  padding-bottom: 12px;
+}
+.hoja-head img { width: 104px; height: auto; }
+.hoja-head .titulo { text-align: right; }
+.hoja-head .etiqueta {
+  font-size: 7.5pt; font-weight: 700; letter-spacing: 1.6px;
+  text-transform: uppercase; color: #F97316; margin: 0 0 3px;
+}
+.hoja-head h1 {
+  font-size: 15.5pt; font-weight: 800; margin: 0; letter-spacing: -0.3px; line-height: 1.15;
+}
+.hoja-head .sub { font-size: 8.5pt; color: #64748B; margin: 3px 0 0; }
+
+/* ---------- indicadores ---------- */
+.kpis { display: flex; gap: 9px; margin: 12px 0 0; }
+.kpi {
+  flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0;
+  border-top: 3px solid #F97316; border-radius: 6px;
+  padding: 8px 10px; text-align: center;
+}
+.kpi .val { font-size: 14pt; font-weight: 800; line-height: 1; color: #0F172A; }
+.kpi .uni { font-size: 8pt; font-weight: 700; color: #F97316; margin-left: 2px; }
+.kpi .lab {
+  display: block; font-size: 7.5pt; text-transform: uppercase;
+  letter-spacing: 0.8px; color: #64748B; margin-top: 5px;
+}
+
+/* ---------- secciones ---------- */
+.seccion {
+  font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 1.4px;
+  color: #F97316; margin: 13px 0 6px; display: flex; align-items: center; gap: 8px;
+}
+.seccion::after { content: ""; flex: 1; height: 1px; background: #E2E8F0; }
+
+/* ---------- filas de dato ---------- */
+.fila {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 4.2px 0; border-bottom: 1px solid #F1F5F9; gap: 16px;
+}
+.fila:last-child { border-bottom: none; }
+.fila span { color: #64748B; }
+.fila strong { font-weight: 700; text-align: right; }
+
+/* ---------- comparativa a dos columnas ---------- */
+.compara { display: flex; gap: 10px; }
+.compara .col { flex: 1; border: 1px solid #E2E8F0; border-radius: 6px; overflow: hidden; }
+.compara .cabeza {
+  background: #0F172A; color: #fff; font-weight: 800; font-size: 9pt;
+  padding: 6px 11px; letter-spacing: 0.3px;
+}
+.compara .cabeza.p20 { background: #F97316; }
+.compara .dato {
+  display: flex; justify-content: space-between; gap: 10px;
+  padding: 4.2px 11px; border-bottom: 1px solid #F1F5F9; font-size: 9pt;
+}
+.compara .dato:last-child { border-bottom: none; }
+.compara .dato span { color: #64748B; }
+
+/* ---------- tablas ---------- */
+table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+th {
+  background: #0F172A; color: #fff; text-align: left; font-size: 7.5pt;
+  text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 9px; font-weight: 700;
+}
+td { padding: 5px 9px; border-bottom: 1px solid #E2E8F0; }
+tr:last-child td { border-bottom: none; }
+.badge {
+  display: inline-block; background: #0F172A; color: #fff; font-weight: 800;
+  font-size: 8pt; padding: 2px 8px; border-radius: 4px;
+}
+.badge.p20 { background: #F97316; }
+
+/* ---------- nota ---------- */
+.nota {
+  background: #F8FAFC; border-left: 3px solid #CBD5E1; border-radius: 0 6px 6px 0;
+  padding: 7px 11px; font-size: 8.2pt; color: #475569; line-height: 1.4; margin-top: 8px;
+}
+.nota strong { color: #0F172A; }
+
+/* ---------- pie ---------- */
+.hoja-pie {
+  margin-top: 15px; padding-top: 9px; border-top: 2px solid #0F172A;
+  font-size: 8.2pt; color: #475569; line-height: 1.45;
+  page-break-inside: avoid; break-inside: avoid;
+}
+.hoja-pie .marca { font-weight: 800; color: #0F172A; font-size: 9.5pt; }
+.hoja-pie .contacto { margin-top: 3px; }
+.hoja-pie .contacto strong { color: #0F172A; }
+.hoja-pie .legal {
+  margin-top: 7px; font-size: 7.5pt; color: #94A3B8;
+  display: flex; justify-content: space-between; gap: 16px;
+}

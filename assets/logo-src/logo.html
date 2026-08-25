@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Logo Prefabricados MP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  /* Fuente del logotipo de Prefabricados MP.
+     El icono se reusa tal cual del logo original (assets/logo-materiales-mp.png),
+     recortando solo la franja donde estaba la palabra "MATERIALES MP".
+     Se rasteriza con Chrome headless: ver assets/logo-src/generar-logo.sh */
+  html, body { margin: 0; padding: 0; background: transparent; }
+
+  .logo {
+    width: 361px;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* franja del icono: filas 0 a 130 del original */
+  .icono {
+    width: 361px;
+    height: 131px;
+    overflow: hidden;
+  }
+  .icono img {
+    width: 361px;
+    height: 180px;
+    display: block;
+  }
+
+  /* palabra nueva, en el mismo tono gris pizarra que la original (#455057) */
+  .palabra {
+    position: absolute;
+    left: 0; right: 0;
+    top: 133px;
+    text-align: center;
+    font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 21px;
+    line-height: 1;
+    letter-spacing: 1.1px;
+    color: #455057;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="logo">
+  <div class="icono"><img src="../logo-materiales-mp.png" alt=""></div>
+  <div class="palabra">PREFABRICADOS MP</div>
+</div>
+</body>
+</html>

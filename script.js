@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tag: "Ficha Técnica",
             title: "Semivigueta de Alma Abierta",
             pdf: "assets/docs/ficha-tecnica-vigueta.pdf",
-            wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20semivigueta%20de%20alma%20abierta",
+            wa: "https://wa.me/524428201102?text=Hola,%20cotizacion%20semivigueta%20de%20alma%20abierta",
             html: `
                 <div class="modal-kpis">
                     <div class="modal-kpi"><span class="kpi-val">310</span><span class="kpi-unit">kg/m²</span><span class="kpi-label">Carga útil</span></div>
@@ -57,16 +57,18 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="modal-col-row"><span>Armadura</span>14/64</div>
                         <div class="modal-col-row"><span>Varilla sup.</span>1/4" Gr. 60</div>
                         <div class="modal-col-row"><span>Diagonal</span>Cal. #8 Gr. 50</div>
-                        <div class="modal-col-row"><span>Peso propio</span>220 kg/m²</div>
+                        <div class="modal-col-row"><span>Peso del sistema</span>220 kg/m²</div>
                     </div>
                     <div class="modal-compare-col">
                         <div class="modal-col-head p20">P-20 · 20 cm</div>
                         <div class="modal-col-row"><span>Armadura</span>19/64</div>
                         <div class="modal-col-row"><span>Varilla sup.</span>1/4" Gr. 60</div>
                         <div class="modal-col-row"><span>Diagonal</span>Cal. #8 Gr. 50</div>
-                        <div class="modal-col-row"><span>Peso propio</span>240 kg/m²</div>
+                        <div class="modal-col-row"><span>Peso del sistema</span>240 kg/m²</div>
                     </div>
                 </div>
+                <div class="modal-spec-row"><span>Peso de la semivigueta</span><strong>15 kg por metro lineal</strong></div>
+                <div class="modal-note-row">El peso del sistema (220-240 kg/m²) es el de la losa terminada: vigueta, bovedilla y capa de compresión.</div>
                 <div class="modal-section-label">Concreto</div>
                 <div class="modal-spec-row"><span>Patín prefabricado</span><strong>f'c = 250 kg/cm²</strong></div>
                 <div class="modal-spec-row"><span>Capa de compresión</span><strong>f'c = 200 kg/cm² (por constructor)</strong></div>
@@ -80,12 +82,12 @@ document.addEventListener("DOMContentLoaded", () => {
             tag: "Ficha Técnica",
             title: "Bovedilla",
             pdf: "assets/docs/ficha-tecnica-bovedilla.pdf",
-            wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20bovedilla",
+            wa: "https://wa.me/524428201102?text=Hola,%20cotizacion%20bovedilla",
             html: `
                 <div class="modal-section-label">Bovedilla de Concreto</div>
                 <div class="modal-spec-row"><span>Medidas (L × A × H)</span><strong>75 × 25 × 15 cm</strong></div>
                 <div class="modal-spec-row"><span>Medidas alternativa</span><strong>70 × 20 × 20 cm</strong></div>
-                <div class="modal-spec-row"><span>Peralte</span><strong>15 cm</strong></div>
+                <div class="modal-spec-row"><span>Peraltes</span><strong>15 y 20 cm, según la medida</strong></div>
                 <div class="modal-section-label">Bovedilla de Poliestireno (EPS)</div>
                 <div class="modal-spec-row"><span>Medidas</span><strong>1.22 × 0.63 m</strong></div>
                 <div class="modal-spec-row"><span>Peraltes disponibles</span><strong>15, 20 y 25 cm</strong></div>
@@ -97,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tag: "Ficha Técnica",
             title: "Casetón de Poliestireno",
             pdf: "assets/docs/ficha-tecnica-caseton.pdf",
-            wa: "https://wa.me/524424253643?text=Hola,%20cotizacion%20caseton",
+            wa: "https://wa.me/524428201102?text=Hola,%20cotizacion%20caseton",
             html: `
                 <div class="modal-kpis" style="grid-template-columns:1fr 1fr;">
                     <div class="modal-kpi"><span class="kpi-val">40×40</span><span class="kpi-unit">cm</span><span class="kpi-label">Medida estándar</span></div>
@@ -139,38 +141,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Calculadora de materiales (calibrada con datos reales de Prefabricados MP)
+    // Ancho = dimension de la pieza en la direccion del claro (a lo largo de la vigueta)
+    const BOVEDILLAS = {
+        c75: { nombre: "concreto 75×25×15 cm", ancho: 0.25 },
+        c70: { nombre: "concreto 70×20×20 cm", ancho: 0.20 },
+        eps: { nombre: "poliestireno 1.22×0.63 m", ancho: 1.22 }
+    };
     window.calcularLosa = function() {
         const claro = parseFloat(document.getElementById("calc-claro").value);
-        const largo = parseFloat(document.getElementById("calc-largo").value);
+        const ancho = parseFloat(document.getElementById("calc-largo").value);
         const peralte = document.getElementById("calc-peralte").value;
+        const tipoBov = document.getElementById("calc-bovedilla").value;
         const errEl = document.getElementById("calcError");
-        if (!claro || claro <= 0 || !largo || largo <= 0) {
-            errEl.textContent = "⚠ Ingresa el claro y el largo de tu losa para calcular.";
+        const resEl = document.getElementById("calcResultado");
+        const fallo = function(html) {
+            errEl.innerHTML = html;
             errEl.style.display = "block";
-            document.getElementById("calcResultado").classList.remove("active");
-            return;
+            resEl.classList.remove("active");
+        };
+        if (!claro || claro <= 0 || !ancho || ancho <= 0) {
+            return fallo("⚠ Ingresa el claro y el ancho de tu losa para calcular.");
+        }
+        if (claro > 12 || ancho > 60) {
+            return fallo("⚠ Revisa las medidas: parece que van en centímetros. Ingrésalas en metros.");
+        }
+        const claroMax = peralte === "15" ? 4.80 : 5.40;
+        if (claro > claroMax) {
+            const aviso = "Hola, tengo una losa con claro de " + claro + " m y ancho de " + ancho + " m. Rebasa el claro de P-" + peralte + " y necesito asesoría.";
+            return fallo("⚠ Un claro de " + claro + " m rebasa el máximo de P-" + peralte + " (" + claroMax + " m). Esa losa necesita revisión estructural, por eso no estimamos piezas. " +
+                "<a href=\"https://wa.me/524428201102?text=" + encodeURIComponent(aviso) + "\" target=\"_blank\" rel=\"noopener\">Escríbele a Isaac por WhatsApp</a>");
         }
         errEl.style.display = "none";
+        document.getElementById("calcWarning").style.display = "none";
+
         const ESPACIADO = 0.80;
         const OVERHANG = 0.20;
-        const numViguetas = Math.ceil(largo / ESPACIADO);
+        // La vigueta se apoya en los dos extremos: n tramos necesitan n+1 piezas
+        const numViguetas = Math.ceil(ancho / ESPACIADO) + 1;
         const longVigueta = +(claro + OVERHANG).toFixed(2);
-        const m2 = claro * largo;
-        const bovedillas = Math.ceil(m2 * 6);
-        const claroMax = peralte === "15" ? 4.80 : 5.40;
-        const warnEl = document.getElementById("calcWarning");
-        if (claro > claroMax) {
-            warnEl.textContent = "⚠ El claro de " + claro + " m supera el máximo para P-" + peralte + " (" + claroMax + " m). Considera usar P-20 o consulta con tu proyectista.";
-            warnEl.style.display = "block";
-        } else {
-            warnEl.style.display = "none";
-        }
+        const m2 = claro * ancho;
+        // Bovedillas por hilera segun la medida elegida, no por area
+        const bov = BOVEDILLAS[tipoBov] || BOVEDILLAS.c75;
+        const hileras = numViguetas - 1;
+        const bovedillas = hileras * Math.ceil(claro / bov.ancho);
+
         document.getElementById("calcViguetaNum").textContent = numViguetas;
         document.getElementById("calcViguetaLen").textContent = "piezas de " + longVigueta + " m";
         document.getElementById("calcBovedillas").textContent = bovedillas;
-        document.getElementById("calcResultado").classList.add("active");
-        const msg = "Hola, necesito cotización:\n• Losa " + claro + " m × " + largo + " m (" + m2.toFixed(1) + " m²), peralte P-" + peralte + "\n• Estimado: " + numViguetas + " viguetas de " + longVigueta + " m y " + bovedillas + " bovedillas";
-        document.getElementById("calcWA").href = "https://wa.me/524424253643?text=" + encodeURIComponent(msg);
+        document.getElementById("calcBovedillaTipo").textContent = "piezas de " + bov.nombre;
+        resEl.classList.add("active");
+        const msg = "Hola, necesito cotización:\n• Losa: claro " + claro + " m × ancho " + ancho + " m (" + m2.toFixed(1) + " m²)\n• Vigueta P-" + peralte + " con bovedilla de " + bov.nombre + "\n• Estimado: " + numViguetas + " viguetas de " + longVigueta + " m y " + bovedillas + " bovedillas";
+        document.getElementById("calcWA").href = "https://wa.me/524428201102?text=" + encodeURIComponent(msg);
     };
 
 });
