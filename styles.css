@@ -905,13 +905,13 @@ footer { padding: 4rem 0 2rem; }
 .footer-bottom { padding-top: 2rem; }
 .why-grid { gap: 3.5rem; }
 
-.hero { height: auto; min-height: 100vh; margin-top: 0; padding: 96px 0 64px; box-sizing: border-box; }
+.hero { height: auto; min-height: 100vh; margin-top: 0; padding: 132px 0 64px; box-sizing: border-box; }
 .hero p { margin: 1.4rem 0 2rem; }
 .hero-stats { margin-top: 2.4rem; padding-top: 1.8rem; }
 
 @media (max-width: 968px) {
     section, .why-section, .materials-section, .faq-section, .contact-section { padding: 3.2rem 0; }
-    .hero { height: auto; min-height: auto; padding: 110px 0 50px; }
+    .hero { height: auto; min-height: auto; padding: 140px 0 50px; }
     .section-header { margin-bottom: 2rem; }
 }
 
