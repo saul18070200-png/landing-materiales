@@ -1,0 +1,48 @@
+rules_version = '2';
+
+// Reglas de la coleccion `leads` del cotizador de la landing.
+//
+// El sitio es publico y no hay login, asi que cualquiera puede CREAR su lead.
+// Lo que nadie puede hacer desde el navegador es leerlos: cada documento trae
+// el telefono de un cliente y una regla de lectura abierta seria una lista de
+// contactos descargable por quien sea. Los leads se consultan desde la consola
+// de Firebase o desde el cotizador con SDK de servidor.
+//
+// Desplegar con:  firebase deploy --only firestore:rules --project prefabricados-mp
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /leads/{leadId} {
+      allow create: if leadValido();
+      allow read, update, delete: if false;
+    }
+
+    // Todo lo demas cerrado.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+
+  // Valida la forma del lead. Sin esto, la coleccion queda abierta a que
+  // cualquiera escriba documentos arbitrarios y la llene de basura.
+  function leadValido() {
+    let d = request.resource.data;
+    return d.keys().hasOnly([
+             'folio', 'fecha', 'metros', 'claro', 'municipio', 'urgencia',
+             'perfil', 'nombre', 'telefono', 'gclid', 'origen', 'estatus'
+           ])
+        && d.folio is string   && d.folio.size() == 6
+        && d.metros is number  && d.metros >= 1 && d.metros <= 100000
+        && d.claro is number   && d.claro > 0 && d.claro <= 30
+        && d.municipio is string && d.municipio.size() <= 40
+        && d.perfil is string    && d.perfil.size() <= 40
+        && d.nombre is string    && d.nombre.size() >= 2 && d.nombre.size() <= 80
+        && d.telefono is string  && d.telefono.size() == 10
+        && d.urgencia in ['este_mes', '1_3_meses', 'solo_cotizando']
+        && d.origen is string    && d.origen.size() <= 40
+        // El estatus solo puede nacer en `nuevo`; lo demas se cambia a mano.
+        && d.estatus == 'nuevo'
+        && (d.gclid == null || (d.gclid is string && d.gclid.size() <= 200));
+  }
+}

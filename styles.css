@@ -940,3 +940,57 @@ footer { padding: 4rem 0 2rem; }
     .fade-in, .fade-in-delay { animation: none; opacity: 1; }
     .reveal-init { transition: none; opacity: 1; transform: none; }
 }
+/* ============ Cotizador de losa (formulario de lead) ============
+   Reutiliza .modal-overlay / .modal-box / .calc-field que ya usa el sitio.
+   Mobile first: casi todo el trafico de obra entra desde celular. */
+.lead-box { max-width: 620px; }
+.lead-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
+@media (min-width: 560px) {
+    .lead-grid { grid-template-columns: 1fr 1fr; }
+    .lead-full { grid-column: 1 / -1; }
+}
+.lead-hint { font-size: 0.78rem; color: var(--gray); margin: 0.35rem 0 0; line-height: 1.35; }
+.lead-error { font-size: 0.78rem; color: #DC2626; font-weight: 600; margin: 0.35rem 0 0; line-height: 1.35; }
+.lead-error:empty { display: none; }
+.calc-field input.invalido, .calc-field select.invalido { border-color: #DC2626; background: #FEF2F2; }
+.calc-field input.invalido:focus, .calc-field select.invalido:focus { box-shadow: 0 0 0 3px rgba(220,38,38,0.12); }
+
+/* Aviso de claro fuera de rango: informa, no bloquea el envio. */
+.lead-aviso { margin: 1.1rem 0 0; padding: 0.8rem 1rem; border-radius: 8px; background: #FFF7ED;
+    border: 1px solid #FED7AA; border-left: 3px solid var(--primary-alt);
+    color: #7C2D12; font-size: 0.83rem; line-height: 1.45; }
+
+.lead-submit { width: 100%; justify-content: center; margin-top: 1.3rem; position: relative; }
+.lead-submit[disabled] { opacity: 0.75; cursor: wait; }
+.lead-submit.cargando .lead-submit-txt { padding-left: 1.5rem; }
+.lead-submit.cargando::before { content: ''; position: absolute; left: 50%; top: 50%; width: 15px; height: 15px;
+    margin: -7.5px 0 0 -60px; border: 2px solid rgba(255,255,255,0.35); border-top-color: #fff;
+    border-radius: 50%; animation: leadSpin 0.7s linear infinite; }
+@keyframes leadSpin { to { transform: rotate(360deg); } }
+.lead-pie { text-align: center; font-size: 0.78rem; color: var(--gray); margin: 0.9rem 0 0; }
+
+/* Confirmacion con folio, por si WhatsApp no alcanza a abrir solo. */
+.lead-ok { text-align: center; padding: 1rem 0 0.5rem; }
+.lead-ok-icon { width: 62px; height: 62px; margin: 0 auto 1.1rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(16,185,129,0.12); color: var(--success); }
+.lead-ok h4 { font-size: 1.25rem; color: var(--primary); margin: 0 0 0.5rem; }
+.lead-ok p { color: var(--gray); font-size: 0.92rem; line-height: 1.5; margin: 0 0 1.3rem; }
+.lead-ok strong { color: var(--primary-alt-text); font-family: 'Outfit', sans-serif; font-weight: 800;
+    letter-spacing: 2px; font-size: 1.1rem; }
+.lead-ok .btn-primary { width: 100%; justify-content: center; }
+
+@media (prefers-reduced-motion: reduce) {
+    .lead-submit.cargando::before { animation-duration: 2.4s; }
+}
+
+/* En movil cada pixel de alto cuenta: entre menos scroll haya entre el titulo
+   y el boton, mas formularios se terminan. */
+@media (max-width: 559px) {
+    .lead-box .modal-header { padding: 1.15rem 1.3rem 1rem; }
+    .lead-box .modal-header h3 { font-size: 1.3rem; }
+    .lead-box .modal-header-top { margin-bottom: 0.6rem; }
+    .lead-box .modal-body { padding: 1.35rem 1.3rem 1.6rem; }
+    .lead-grid { gap: 0.85rem; }
+    .lead-submit { margin-top: 1.1rem; }
+}
