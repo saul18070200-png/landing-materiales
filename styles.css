@@ -916,6 +916,19 @@ footer { padding: 4rem 0 2rem; }
 .reveal-init { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal-init.visible { opacity: 1; transform: none; }
 
+/* ===== Calculadora en pantallas chicas =====
+   A dos columnas, el campo "Ancho de la losa" queda fuera de pantalla y no hay
+   forma de deslizar hasta el: por debajo de 600px va apilada. */
+@media (max-width: 600px) {
+    .calc-row-2 { grid-template-columns: 1fr; }
+    .calc-field input, .calc-field select { min-width: 0; }
+}
+
+@media (max-width: 480px) {
+    .claros-card, .calc-card { padding: 1.25rem; }
+    .calc-items { grid-template-columns: 1fr; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .fade-in, .fade-in-delay { animation: none; opacity: 1; }
