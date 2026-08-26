@@ -609,6 +609,9 @@ footer {
 
 /* ===== ESTILOS REINGENIERIA: Vigueta, Bovedilla y Caseton ===== */
 .hero-eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--primary-alt); margin-bottom: 1rem; display: block; }
+/* El eyebrow es un <p> dentro del hero, asi que hereda el max-width de `.hero p`
+   (600px) y parte "QUERETARO" a un segundo renglon. Se le da su propio ancho. */
+.hero p.hero-eyebrow { max-width: none; margin-top: 0; }
 .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.2); width: 100%; }
 .stat-item { display: flex; flex-direction: column; }
 .stat-num { font-size: 2.5rem; font-weight: 800; color: var(--primary-alt); font-family: "Outfit", sans-serif; line-height: 1; }
@@ -902,7 +905,7 @@ footer { padding: 4rem 0 2rem; }
 .footer-bottom { padding-top: 2rem; }
 .why-grid { gap: 3.5rem; }
 
-.hero { height: 100vh; min-height: 540px; margin-top: 0; padding-top: 68px; box-sizing: border-box; }
+.hero { height: auto; min-height: 100vh; margin-top: 0; padding: 96px 0 64px; box-sizing: border-box; }
 .hero p { margin: 1.4rem 0 2rem; }
 .hero-stats { margin-top: 2.4rem; padding-top: 1.8rem; }
 
