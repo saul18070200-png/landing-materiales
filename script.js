@@ -190,7 +190,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("calcBovedillas").textContent = bovedillas;
         document.getElementById("calcBovedillaTipo").textContent = "piezas de " + bov.nombre;
         resEl.classList.add("active");
-        const msg = "Hola, necesito cotización:\n• Losa: claro " + claro + " m × ancho " + ancho + " m (" + m2.toFixed(1) + " m²)\n• Vigueta P-" + peralte + " con bovedilla de " + bov.nombre + "\n• Estimado: " + numViguetas + " viguetas de " + longVigueta + " m y " + bovedillas + " bovedillas";
+        // La aclaracion va dentro del mensaje a proposito: asi el cliente y Isaac
+        // ven lo mismo, y nadie llega diciendo "es que la calculadora dijo".
+        const msg = "Hola, necesito cotización:\n• Losa: claro " + claro + " m × ancho " + ancho + " m (" + m2.toFixed(1) + " m²)\n• Vigueta P-" + peralte + " con bovedilla de " + bov.nombre + "\n• Estimado aproximado del sitio: " + numViguetas + " viguetas de " + longVigueta + " m y " + bovedillas + " bovedillas\n\nSé que son cantidades aproximadas; quiero que me confirmen las definitivas y el precio.";
         document.getElementById("calcWA").href = "https://wa.me/524428201102?text=" + encodeURIComponent(msg);
     };
 
