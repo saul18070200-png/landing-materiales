@@ -256,7 +256,7 @@ function construirModal() {
           '<button type="submit" class="btn-primary lead-submit" id="leadSubmit">' +
             '<span class="lead-submit-txt">Enviar y abrir WhatsApp</span>' +
           '</button>' +
-          '<p class="lead-pie">Te contesta Isaac Mojica. Sin costo y sin compromiso.</p>' +
+          '<p class="lead-pie">Te contesta Isaac Mojica. Sin costo y sin compromiso.<br>Al enviar aceptas nuestro <a href="/privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>.</p>' +
         '</form>' +
         '<div class="lead-ok" id="leadOk" hidden>' +
           '<div class="lead-ok-icon">' +
