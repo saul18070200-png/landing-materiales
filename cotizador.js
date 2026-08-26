@@ -49,10 +49,16 @@ const MUNICIPIOS = ["Querétaro", "El Marqués", "Corregidora", "San Juan del R�
     "Ezequiel Montes", "Cadereyta", "Otro"];
 
 const URGENCIAS = [
-    { value: "este_mes", label: "Este mes" },
-    { value: "1_3_meses", label: "En 1 a 3 meses" },
+    { value: "esta_semana",    label: "Esta semana" },
+    { value: "proxima_semana", label: "Próxima semana" },
+    { value: "proximo_mes",    label: "Próximo mes" },
     { value: "solo_cotizando", label: "Solo estoy cotizando" }
 ];
+
+// Urgencias que NO reportan conversion a Google. Al que solo anda cotizando se
+// le atiende igual y se guarda igual, pero no debe entrenar al algoritmo: si
+// cuenta como conversion, Google sale a buscar mas gente que solo pregunta.
+const URGENCIAS_SIN_CONVERSION = ["solo_cotizando"];
 
 const PERFILES = ["Constructora", "Arquitecto", "Contratista", "Particular"];
 
@@ -142,9 +148,7 @@ async function guardarLead(datos) {
 
 function reportarConversion(folio, urgencia) {
     return new Promise(resolve => {
-        // Exclusion intencional: al que solo anda cotizando se le atiende igual,
-        // pero no debe entrenar al algoritmo de Google.
-        const cuenta = urgencia !== "solo_cotizando";
+        const cuenta = URGENCIAS_SIN_CONVERSION.indexOf(urgencia) === -1;
         if (!cuenta || typeof gtag !== "function" || ADS_LABEL.indexOf("PENDIENTE") > -1) {
             return resolve();
         }

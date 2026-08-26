@@ -39,7 +39,7 @@ service cloud.firestore {
         && d.perfil is string    && d.perfil.size() <= 40
         && d.nombre is string    && d.nombre.size() >= 2 && d.nombre.size() <= 80
         && d.telefono is string  && d.telefono.size() == 10
-        && d.urgencia in ['este_mes', '1_3_meses', 'solo_cotizando']
+        && d.urgencia in ['esta_semana', 'proxima_semana', 'proximo_mes', 'solo_cotizando']
         && d.origen is string    && d.origen.size() <= 40
         // El estatus solo puede nacer en `nuevo`; lo demas se cambia a mano.
         && d.estatus == 'nuevo'
