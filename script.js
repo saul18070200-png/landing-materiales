@@ -202,7 +202,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // si algo falla alla adentro, el seguimiento de leads sigue funcionando.
 // No hace nada hasta que se configure GA_ID en el head de index.html.
 document.addEventListener("DOMContentLoaded", () => {
-    const SELECTOR = 'a[href^="https://wa.me/"], a[href^="tel:"], #calcWA, #modalCta';
+    // Los [data-form] los mide el cotizador, que es el unico que sabe si el
+    // click abrio el formulario o paso derecho a WhatsApp. Contarlos aqui
+    // tambien inflaba "contacto" con gente que solo vio un formulario y nunca
+    // le escribio a nadie. #calcWA y #modalCta ya traen data-form.
+    const SELECTOR = 'a[href^="https://wa.me/"]:not([data-form]), a[href^="tel:"]';
     document.querySelectorAll(SELECTOR).forEach(a => {
         a.addEventListener("click", () => {
             if (typeof window.gtag !== "function") return;

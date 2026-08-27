@@ -290,6 +290,59 @@ document.addEventListener("DOMContentLoaded", function () {
     let enviando = false;
     let ultimoFoco = null;
 
+    /* ---------- Embudo ---------- */
+
+    // Sin esto no hay forma de distinguir "nadie quiere cotizar" de "todos abren
+    // el formulario y se rajan". Cada paso se manda a GA4 por separado para poder
+    // leer el embudo completo: abierto -> empezado -> enviado, y donde se cae.
+    const CAMPOS = ["metros", "claro", "municipio", "urgencia", "perfil", "nombre", "telefono"];
+    let embudo = null;
+
+    function medir(evento, params) {
+        if (typeof gtag !== "function") return;
+        gtag("event", evento, params || {});
+    }
+
+    function camposLlenos() {
+        return CAMPOS.filter(function (n) {
+            const el = form.querySelector('[name="' + n + '"]');
+            return el && el.value.trim() !== "";
+        });
+    }
+
+    // Cerrar la pantalla de exito no es un abandono: por eso el flag `enviado`.
+    function abandonar(motivo) {
+        if (!embudo || embudo.enviado) return;
+        const llenos = camposLlenos();
+        medir("cotizador_abandonado", {
+            origen: embudo.origen,
+            motivo: motivo,
+            campos_llenos: llenos.length,
+            ultimo_campo: embudo.ultimoCampo || "ninguno",
+            // El primero que falta es, casi siempre, el campo que los espanto.
+            primer_faltante: CAMPOS.filter(function (c) { return llenos.indexOf(c) === -1; })[0] || "ninguno",
+            segundos: Math.round((Date.now() - embudo.inicio) / 1000),
+            // pagehide corre mientras la pagina ya se esta muriendo: sin beacon
+            // el navegador cancela el request y el abandono mas comun de todos
+            // seria justo el que nunca se alcanza a medir.
+            transport_type: "beacon"
+        });
+        embudo = null;
+    }
+
+    // Marca avance en cuanto tocan un campo. El primer toque separa al que abrio
+    // por curiosidad del que de verdad intento cotizar.
+    function registrarAvance(e) {
+        if (!embudo) return;
+        const nombre = e.target && e.target.name;
+        if (!nombre || CAMPOS.indexOf(nombre) === -1) return;
+        embudo.ultimoCampo = nombre;
+        if (!embudo.empezado) {
+            embudo.empezado = true;
+            medir("cotizador_empezado", { origen: embudo.origen, primer_campo: nombre });
+        }
+    }
+
     function abrir(origen) {
         ultimoFoco = document.activeElement;
         // Si vienen de la calculadora ya nos dieron las medidas: no se las
@@ -305,6 +358,20 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         form.dataset.origen = origen || "cta";
+        embudo = {
+            origen: form.dataset.origen,
+            inicio: Date.now(),
+            empezado: false,
+            enviado: false,
+            ultimoCampo: null
+        };
+        medir("cotizador_abierto", {
+            origen: form.dataset.origen,
+            // La pregunta que importa no es cuantos abren, sino si el que
+            // llego pagado abandona mas que el organico. Sin este campo los
+            // dos publicos quedan revueltos en el mismo numero.
+            desde_anuncio: vieneDeAnuncio() ? "si" : "no"
+        });
         modal.classList.add("open");
         modal.setAttribute("aria-hidden", "false");
         document.body.classList.add("modal-open");
@@ -315,6 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function cerrar() {
+        abandonar("cerro_modal");
         modal.classList.remove("open");
         modal.setAttribute("aria-hidden", "true");
         document.body.classList.remove("modal-open");
@@ -330,11 +398,29 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("[data-form]").forEach(function (cta) {
         const modo = cta.getAttribute("data-form");
         cta.addEventListener("click", function (e) {
-            if (modo === "si-anuncio" && !vieneDeAnuncio()) return;
+            if (modo === "si-anuncio" && !vieneDeAnuncio()) {
+                // Paso libre al organico: esto si es un contacto real por
+                // WhatsApp, no una apertura de formulario. Se mide aqui porque
+                // script.js ya no toca los [data-form], para no contar el mismo
+                // click como contacto y como apertura a la vez.
+                medir("contacto", {
+                    canal: "whatsapp",
+                    origen: cta.getAttribute("data-origen") || "sin-etiqueta"
+                });
+                return;
+            }
             e.preventDefault();
             abrir(cta.getAttribute("data-origen"));
         });
     });
+
+    // Captura en fase de captura: los select disparan change, los input disparan input.
+    form.addEventListener("input", registrarAvance, true);
+    form.addEventListener("change", registrarAvance, true);
+
+    // Irse con el formulario abierto es el abandono mas comun y el que ningun
+    // click reporta. pagehide es el unico evento confiable en Safari movil.
+    window.addEventListener("pagehide", function () { abandonar("salio_del_sitio"); });
 
     modal.querySelector("#leadClose").addEventListener("click", cerrar);
     modal.addEventListener("click", function (e) { if (e.target === modal) cerrar(); });
@@ -403,7 +489,26 @@ document.addEventListener("DOMContentLoaded", function () {
         if (enviando) return;
 
         const datos = validar();
-        if (!datos) return;
+        if (!datos) {
+            // Que campo trabo el envio. Si todos se atoran en el mismo, el problema
+            // es ese campo, no el formulario entero.
+            const fallos = CAMPOS.filter(function (n) {
+                const p = modal.querySelector('[data-error="' + n + '"]');
+                return p && p.textContent.trim() !== "";
+            });
+            medir("cotizador_error", {
+                origen: form.dataset.origen || "cta",
+                campos: fallos.join(",") || "desconocido"
+            });
+            return;
+        }
+
+        if (embudo) embudo.enviado = true;
+        medir("cotizador_enviado", {
+            origen: form.dataset.origen || "cta",
+            urgencia: datos.urgencia,
+            segundos: embudo ? Math.round((Date.now() - embudo.inicio) / 1000) : 0
+        });
 
         enviando = true;
         boton.disabled = true;
