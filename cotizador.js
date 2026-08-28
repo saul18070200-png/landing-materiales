@@ -407,6 +407,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     canal: "whatsapp",
                     origen: cta.getAttribute("data-origen") || "sin-etiqueta"
                 });
+                // Aunque vieneDeAnuncio() dio falso, el gclid pudo perderse
+                // (almacenamiento bloqueado): se manda siempre y Google decide
+                // si habia clic de anuncio que atribuir.
+                const etiqueta = window.ADS_CONVERSION_CONTACTO || "";
+                if (etiqueta && etiqueta.indexOf("PENDIENTE") === -1) {
+                    medir("conversion", { send_to: etiqueta });
+                }
                 return;
             }
             e.preventDefault();

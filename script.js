@@ -219,6 +219,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 canal: esWhats ? "whatsapp" : "telefono",
                 origen: origen
             });
+            // Se manda siempre: Google solo la cuenta si la visita traia un
+            // clic de anuncio, asi que no hay que filtrar aqui.
+            const etiqueta = window.ADS_CONVERSION_CONTACTO || "";
+            if (etiqueta && etiqueta.indexOf("PENDIENTE") === -1) {
+                window.gtag("event", "conversion", { send_to: etiqueta });
+            }
         });
     });
 });
