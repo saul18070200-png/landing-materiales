@@ -37,8 +37,10 @@ service cloud.firestore {
         && d.claro is number   && d.claro > 0 && d.claro <= 30
         && d.municipio is string && d.municipio.size() <= 40
         && d.perfil is string    && d.perfil.size() <= 40
-        && d.nombre is string    && d.nombre.size() >= 2 && d.nombre.size() <= 80
-        && d.telefono is string  && d.telefono.size() == 10
+        // Nombre y telefono son opcionales en el formulario (llegan solos al
+        // escribir por WhatsApp): se acepta vacio, pero si vienen, con forma.
+        && d.nombre is string    && (d.nombre.size() == 0 || (d.nombre.size() >= 2 && d.nombre.size() <= 80))
+        && d.telefono is string  && (d.telefono.size() == 0 || d.telefono.size() == 10)
         && d.urgencia in ['esta_semana', 'proxima_semana', 'proximo_mes', 'solo_cotizando']
         && d.origen is string    && d.origen.size() <= 40
         // El estatus solo puede nacer en `nuevo`; lo demas se cambia a mano.

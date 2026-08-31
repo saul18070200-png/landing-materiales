@@ -182,7 +182,11 @@ function armarMensaje(datos, folio) {
         "Claro: " + datos.claro + " m\n" +
         "Municipio: " + datos.municipio + "\n" +
         "Para: " + (urgencia ? urgencia.label : datos.urgencia) + "\n" +
-        "Soy: " + datos.perfil;
+        "Soy: " + datos.perfil +
+        (datos.nombre ? "\nNombre: " + datos.nombre : "") +
+        // El telefono viaja tambien en el mensaje: si Firestore falla, el dato
+        // que el cliente se molesto en escribir no se pierde.
+        (datos.telefono ? "\nMi WhatsApp: " + datos.telefono : "");
 }
 
 function opciones(lista) {
@@ -246,13 +250,13 @@ function construirModal() {
               '<p class="lead-error" data-error="perfil"></p>' +
             '</div>' +
             '<div class="calc-field">' +
-              '<label for="lead-nombre">Nombre</label>' +
-              '<input type="text" id="lead-nombre" name="nombre" autocomplete="name" placeholder="&iquest;Con qui&eacute;n tenemos el gusto?" required>' +
+              '<label for="lead-nombre">Nombre <span class="lead-opcional">(opcional)</span></label>' +
+              '<input type="text" id="lead-nombre" name="nombre" autocomplete="name" placeholder="&iquest;Con qui&eacute;n tenemos el gusto?">' +
               '<p class="lead-error" data-error="nombre"></p>' +
             '</div>' +
             '<div class="calc-field lead-full">' +
-              '<label for="lead-telefono">WhatsApp</label>' +
-              '<input type="tel" id="lead-telefono" name="telefono" inputmode="tel" autocomplete="tel-national" placeholder="10 d&iacute;gitos" required>' +
+              '<label for="lead-telefono">WhatsApp <span class="lead-opcional">(opcional)</span></label>' +
+              '<input type="tel" id="lead-telefono" name="telefono" inputmode="tel" autocomplete="tel-national" placeholder="10 d&iacute;gitos, por si se corta el chat">' +
               '<p class="lead-error" data-error="telefono"></p>' +
             '</div>' +
           '</div>' +
@@ -296,6 +300,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // el formulario y se rajan". Cada paso se manda a GA4 por separado para poder
     // leer el embudo completo: abierto -> empezado -> enviado, y donde se cae.
     const CAMPOS = ["metros", "claro", "municipio", "urgencia", "perfil", "nombre", "telefono"];
+    // Solo los obligatorios cuentan para `primer_faltante`: con nombre y
+    // telefono opcionales, "falta nombre" ya no significa que algo espantara.
+    const CAMPOS_OBLIGATORIOS = ["metros", "claro", "municipio", "urgencia", "perfil"];
     let embudo = null;
 
     function medir(evento, params) {
@@ -320,7 +327,8 @@ document.addEventListener("DOMContentLoaded", function () {
             campos_llenos: llenos.length,
             ultimo_campo: embudo.ultimoCampo || "ninguno",
             // El primero que falta es, casi siempre, el campo que los espanto.
-            primer_faltante: CAMPOS.filter(function (c) { return llenos.indexOf(c) === -1; })[0] || "ninguno",
+            // "ninguno" = lleno todos los obligatorios y aun asi no envio.
+            primer_faltante: CAMPOS_OBLIGATORIOS.filter(function (c) { return llenos.indexOf(c) === -1; })[0] || "ninguno",
             segundos: Math.round((Date.now() - embudo.inicio) / 1000),
             // pagehide corre mientras la pagina ya se esta muriendo: sin beacon
             // el navegador cancela el request y el abandono mas comun de todos
@@ -392,24 +400,26 @@ document.addEventListener("DOMContentLoaded", function () {
     // Los CTA conservan su href a WhatsApp: si este modulo no carga, el boton
     // sigue sirviendo. Solo interceptamos cuando el modal ya existe.
     //
-    //   data-form="cotizar"     siempre abre el formulario
-    //   data-form="si-anuncio"  solo lo abre si el visitante llego por un anuncio;
-    //                           al trafico organico se le deja el paso libre
+    //   data-form="cotizar"     abre el formulario
+    //   data-form="si-anuncio"  paso libre SIEMPRE: son los enlaces que prometen
+    //                           WhatsApp directo, y meterle el formulario justo al
+    //                           trafico pagado resulto ser la peor friccion del
+    //                           sitio (GA4: abrian y se iban sin tocar un campo).
+    //                           El click se mide como contacto y, cuando la
+    //                           etiqueta este dada de alta, como conversion.
     document.querySelectorAll("[data-form]").forEach(function (cta) {
         const modo = cta.getAttribute("data-form");
         cta.addEventListener("click", function (e) {
-            if (modo === "si-anuncio" && !vieneDeAnuncio()) {
-                // Paso libre al organico: esto si es un contacto real por
-                // WhatsApp, no una apertura de formulario. Se mide aqui porque
-                // script.js ya no toca los [data-form], para no contar el mismo
-                // click como contacto y como apertura a la vez.
+            if (modo !== "cotizar") {
+                // Esto si es un contacto real por WhatsApp, no una apertura de
+                // formulario. Se mide aqui porque script.js ya no toca los
+                // [data-form], para no contar el mismo click dos veces.
                 medir("contacto", {
                     canal: "whatsapp",
                     origen: cta.getAttribute("data-origen") || "sin-etiqueta"
                 });
-                // Aunque vieneDeAnuncio() dio falso, el gclid pudo perderse
-                // (almacenamiento bloqueado): se manda siempre y Google decide
-                // si habia clic de anuncio que atribuir.
+                // Se manda siempre: Google solo la cuenta si la visita traia
+                // un clic de anuncio que atribuir.
                 const etiqueta = window.ADS_CONVERSION_CONTACTO || "";
                 if (etiqueta && etiqueta.indexOf("PENDIENTE") === -1) {
                     medir("conversion", { send_to: etiqueta });
@@ -477,8 +487,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!d.municipio) errores.municipio = "Elige el municipio de la obra.";
         if (!d.urgencia) errores.urgencia = "Elige para cuándo la ocupas.";
         if (!d.perfil) errores.perfil = "Elige una opción.";
-        if (d.nombre.length < 2) errores.nombre = "Escribe tu nombre.";
-        if (d.telefono.length !== 10) errores.telefono = "Tu WhatsApp va a 10 dígitos.";
+        // Nombre y telefono son opcionales: llegan solos al escribir por
+        // WhatsApp. Solo se valida el formato del telefono si lo escribieron.
+        if (d.telefono && d.telefono.length !== 10) errores.telefono = "Si nos dejas tu WhatsApp, va a 10 dígitos.";
 
         ["metros", "claro", "municipio", "urgencia", "perfil", "nombre", "telefono"]
             .forEach(function (c) { marcarError(c, errores[c]); });

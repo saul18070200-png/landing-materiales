@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("header");
     window.addEventListener("scroll", () => {
-        const sc = window.scrollY > 50;
-        header.style.padding = sc ? "0.5rem 0" : "1rem 0";
-        header.classList.toggle("scrolled", sc);
+        // El padding lo maneja el CSS (con sus media queries); aqui solo la clase.
+        header.classList.toggle("scrolled", window.scrollY > 50);
     });
 
     const navToggle = document.getElementById("navToggle");
@@ -32,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); revealObserver.unobserve(entry.target); } });
     }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
-    document.querySelectorAll(".product-card, .section-title, .why-item, .guarantee-card, .material-chip").forEach(el => {
+    document.querySelectorAll(".product-card, .section-title, .why-item, .guarantee-card").forEach(el => {
         el.classList.add("reveal-init");
         revealObserver.observe(el);
     });
@@ -227,4 +226,22 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+});
+
+// El boton flotante de WhatsApp se retira cuando la seccion visible ya ofrece
+// la misma accion en grande: encimado al boton "Llamar ahora" o al banner final
+// provocaba taps errados justo en el flujo de contacto.
+document.addEventListener("DOMContentLoaded", () => {
+    const flotante = document.querySelector(".whatsapp-float");
+    const zonas = document.querySelectorAll(".contact-ctas, .cta-banner, .garantias-cta");
+    if (!flotante || !zonas.length || !("IntersectionObserver" in window)) return;
+    const visibles = new Set();
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(en => {
+            if (en.isIntersecting) visibles.add(en.target);
+            else visibles.delete(en.target);
+        });
+        flotante.classList.toggle("oculto", visibles.size > 0);
+    }, { threshold: 0 });
+    zonas.forEach(z => obs.observe(z));
 });
