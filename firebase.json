@@ -55,6 +55,68 @@
           }
         ]
       }
+    ],
+    "redirects": [
+      {
+        "source": "/login",
+        "destination": "https://cotizador-prefabricados-mp.web.app/login",
+        "type": 301
+      },
+      {
+        "source": "/dashboard",
+        "destination": "https://cotizador-prefabricados-mp.web.app/dashboard",
+        "type": 301
+      },
+      {
+        "source": "/historial",
+        "destination": "https://cotizador-prefabricados-mp.web.app/historial",
+        "type": 301
+      },
+      {
+        "source": "/clientes",
+        "destination": "https://cotizador-prefabricados-mp.web.app/clientes",
+        "type": 301
+      },
+      {
+        "source": "/entregas",
+        "destination": "https://cotizador-prefabricados-mp.web.app/entregas",
+        "type": 301
+      },
+      {
+        "source": "/agenda",
+        "destination": "https://cotizador-prefabricados-mp.web.app/agenda",
+        "type": 301
+      },
+      {
+        "source": "/mas",
+        "destination": "https://cotizador-prefabricados-mp.web.app/mas",
+        "type": 301
+      },
+      {
+        "source": "/catalogo",
+        "destination": "https://cotizador-prefabricados-mp.web.app/catalogo",
+        "type": 301
+      },
+      {
+        "source": "/configuracion",
+        "destination": "https://cotizador-prefabricados-mp.web.app/configuracion",
+        "type": 301
+      },
+      {
+        "source": "/usuarios",
+        "destination": "https://cotizador-prefabricados-mp.web.app/usuarios",
+        "type": 301
+      },
+      {
+        "source": "/proveedores",
+        "destination": "https://cotizador-prefabricados-mp.web.app/proveedores",
+        "type": 301
+      },
+      {
+        "source": "/c/:id",
+        "destination": "https://cotizador-prefabricados-mp.web.app/c/:id",
+        "type": 301
+      }
     ]
   }
 }
