@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PFDQFTNV');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Página no encontrada | Prefabricados MP</title>
@@ -70,6 +77,10 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFDQFTNV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <div class="caja">
     <img src="/assets/apple-touch-icon.png" alt="" class="marca" width="180" height="180">
     <p class="nombre">Prefabricados MP</p>
@@ -82,5 +93,13 @@
     </div>
     <p class="pie">O llámanos al <a href="tel:+524428201102">442 820 1102</a> &middot; Isaac Mojica</p>
   </div>
+  <script>
+    // Mismo evento que en el sitio principal (script.js): en GTM dispara la
+    // conversion "Clic en WhatsApp".
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="https://wa.me/"]');
+      if (a) (window.dataLayer = window.dataLayer || []).push({ event: "clic_whatsapp", origen: "pagina-404" });
+    });
+  </script>
 </body>
 </html>

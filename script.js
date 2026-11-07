@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
         anchor.addEventListener("click", function(e) {
             const href = this.getAttribute("href");
-            if (href.length < 2) return;
+            // #calcWA nace con href="#" y el estimador se lo cambia por el enlace
+            // de WhatsApp: sin este filtro querySelector truena con esa URL.
+            if (href.length < 2 || href.charAt(0) !== "#") return;
             const target = document.querySelector(href);
             if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth", block: "start" }); }
         });
@@ -191,9 +193,47 @@ document.addEventListener("DOMContentLoaded", () => {
         resEl.classList.add("active");
         // La aclaracion va dentro del mensaje a proposito: asi el cliente y Isaac
         // ven lo mismo, y nadie llega diciendo "es que la calculadora dijo".
-        const msg = "Hola, necesito cotización:\n• Losa: claro " + claro + " m × ancho " + ancho + " m (" + m2.toFixed(1) + " m²)\n• Vigueta P-" + peralte + " con bovedilla de " + bov.nombre + "\n• Estimado aproximado del sitio: " + numViguetas + " viguetas de " + longVigueta + " m y " + bovedillas + " bovedillas\n\nSé que son cantidades aproximadas; quiero que me confirmen las definitivas y el precio.";
+        const msg = "Hola, quiero cotizar mi losa con los datos del Estimador:\n" +
+            "• Claro entre apoyos: " + claro + " m\n" +
+            "• Ancho de la losa: " + ancho + " m\n" +
+            "• Superficie: " + m2.toFixed(1) + " m²\n" +
+            "• Peralte de vigueta: P-" + peralte + "\n" +
+            "• Tipo de bovedilla: " + bov.nombre + "\n" +
+            "• Viguetas: " + numViguetas + " piezas de " + longVigueta + " m\n" +
+            "• Bovedillas: " + bovedillas + " piezas\n\n" +
+            "Entiendo que las cantidades son aproximadas y que el precio se confirma con el despiece real de la losa.";
         document.getElementById("calcWA").href = "https://wa.me/524428201102?text=" + encodeURIComponent(msg);
     };
+
+    // Una vez que calcularon, cualquier cambio en las medidas vuelve a correr el
+    // mismo calculo: lo que se ve en pantalla y el mensaje que viaja a WhatsApp
+    // nunca se quedan con los valores de antes. Si la medida nueva no es valida,
+    // calcularLosa esconde el resultado (y con el, el boton) y avisa por que.
+    const CAMPOS_CALC = ["calc-claro", "calc-largo", "calc-peralte", "calc-bovedilla"];
+    const firmaCalc = () => CAMPOS_CALC.map(id => document.getElementById(id).value).join("|");
+    let estimadorUsado = false;
+    let ultimaFirma = "";
+    const btnCalcular = document.querySelector(".calc-btn");
+    if (btnCalcular) btnCalcular.addEventListener("click", () => { estimadorUsado = true; ultimaFirma = firmaCalc(); });
+    CAMPOS_CALC.forEach(id => {
+        const campo = document.getElementById(id);
+        if (!campo) return;
+        const recalcular = e => {
+            if (!estimadorUsado) return;
+            // A medio teclear un decimal ("3.") el campo vale "" un instante: ahi
+            // no se recalcula, se espera al siguiente digito o a que suelten el campo.
+            if (e.type === "input" && campo.value === "") return;
+            // El change que llega al soltar el campo trae los mismos valores que el
+            // ultimo input. Recalcular otra vez reescribiria el aviso de claro
+            // excedido justo cuando le dan clic a su enlace, y ese clic se perderia.
+            const firma = firmaCalc();
+            if (firma === ultimaFirma) return;
+            ultimaFirma = firma;
+            window.calcularLosa();
+        };
+        campo.addEventListener("input", recalcular);
+        campo.addEventListener("change", recalcular);
+    });
 
 });
 
@@ -226,6 +266,37 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+});
+
+// Eventos para Google Tag Manager (GTM-PFDQFTNV). En GTM cada uno dispara su
+// conversion de Ads:
+//   clic_whatsapp   -> "Clic en WhatsApp"             (origen = data-origen)
+//   clic_estimador  -> "Clic en Calcular (Estimador)" (boton = calcular | pedir_cotizacion)
+// Un clic nunca cuenta en las dos: "Pedir cotizacion con estas medidas" tambien
+// abre WhatsApp, pero se reporta solo como estimador.
+//
+// Va en document y en fase de burbuja a proposito: alcanza los enlaces que se
+// arman despues de cargar (el aviso de claro excedido) y, para cuando llega
+// aqui, el cotizador ya decidio si intercepto el clic para abrir su formulario
+// (defaultPrevented). Ese clic todavia no abre WhatsApp, asi que no se cuenta.
+document.addEventListener("click", e => {
+    const el = e.target.closest ? e.target.closest("a, button") : null;
+    if (!el) return;
+    const dl = window.dataLayer = window.dataLayer || [];
+    const abreWhatsApp = el.tagName === "A" && el.href.indexOf("https://wa.me/") === 0;
+    if (el.id === "calcWA") {
+        if (abreWhatsApp) dl.push({ event: "clic_estimador", boton: "pedir_cotizacion" });
+    } else if (el.classList.contains("calc-btn")) {
+        dl.push({ event: "clic_estimador", boton: "calcular" });
+    } else if (abreWhatsApp && !e.defaultPrevented) {
+        dl.push({
+            event: "clic_whatsapp",
+            origen: el.getAttribute("data-origen")
+                || el.getAttribute("aria-label")
+                || el.textContent.trim().slice(0, 40)
+                || "sin-etiqueta"
+        });
+    }
 });
 
 // El boton flotante de WhatsApp se retira cuando la seccion visible ya ofrece
